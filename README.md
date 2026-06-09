@@ -34,9 +34,9 @@ p { font-size: 18px; line-height: 1.6; }
 <body>
 <div class="card">
 <h1>ยินดีต้อนรับสู่โปรไฟล์ของฉัน </h1>
-<p>สวัสดีครับ! ผมช่อื <strong>ณัชนน (Natchanon)</strong></p>
-<p>ขณะนี้ก;าลังศึกษา/สนใจด้าน Computer Science & Engineering</p>
-<p>นี่คือเว็บไซต์แรกของผมที่โฮสต์บน GitHub Pages!</p>
+<p>สวัสดีค่ะ! ดิฉันชื่อ <strong>ณัชนน (Natchanon)</strong></p>
+<p>ขณะนี้กำลังศึกษา/สนใจด้าน Computer Science & Engineering</p>
+<p>นี่คือเว็บไซต์แรกของดิฉันที่โฮสต์บน GitHub Pages!</p>
 </div>
 </body>
 </html>
