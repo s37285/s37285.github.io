@@ -26,115 +26,307 @@ p { font-size: 18px; line-height: 1.6; }
 <p>ขณะนี้กำลังศึกษา/สนใจด้าน Faculty of Pharmacy & Faculty of Medical Technology</p>
 <p>นี่คือเว็บไซต์แรกของดิฉันที่โฮสต์บน GitHub Pages!</p>
   <!DOCTYPE html>
+
 <html lang="th">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gradient Popup Button</title>
+
+<title>Sweet Pink Popup</title>
 
 <style>
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #f5f7fa;
-    font-family: Arial, sans-serif;
-}
-.btn {
-    padding: 14px 32px;
-    border: none;
-    border-radius: 50px;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(37,117,252,0.4);
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Arial',sans-serif;
+
 }
 
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(37,117,252,0.6);
+body{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    height:100vh;
+
+    overflow:hidden;
+
+    background:linear-gradient(135deg,#ffd6e7,#ffe8f3,#fff5fa);
+
 }
 
-.btn:active {
-    transform: scale(0.95);
-}
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
+/* วงกลมตกแต่ง */
+
+body::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+
+    height:300px;
+
+    background:rgba(255,255,255,.4);
+
+    border-radius:50%;
+
+    top:-100px;
+
+    left:-100px;
+
 }
 
-.modal-content {
-    background: pink;
-    width: 320px;
-    padding: 25px;
-    border-radius: 15px;
-    text-align: center;
-    margin: 15% auto;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+body::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+
+    height:250px;
+
+    background:rgba(255,255,255,.4);
+
+    border-radius:50%;
+
+    bottom:-80px;
+
+    right:-80px;
+
 }
 
-.popup-btn {
-    margin: 8px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    color: white;
+/* ปุ่ม */
+
+.btn{
+
+    padding:18px 40px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(45deg,#ff7eb3,#ff4d94);
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:0 10px 25px rgba(255,105,180,.5);
+
+    transition:.3s;
+
 }
 
-.confirm {
-    background: #28a745;
+.btn:hover{
+
+    transform:translateY(-5px);
+
 }
 
-.cancel {
-    background: #dc3545;
+/* พื้นหลัง Popup */
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(255,182,193,.4);
+
+    backdrop-filter:blur(8px);
+
 }
+
+/* กล่อง Popup */
+
+.modal-content{
+
+    width:360px;
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:30px;
+
+    margin:8% auto;
+
+    text-align:center;
+
+    box-shadow:0 15px 40px rgba(255,105,180,.3);
+
+    animation:popup .5s;
+
+}
+
+@keyframes popup{
+
+    from{
+
+        transform:scale(.5);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+.modal-content h2{
+
+    color:#ff4d94;
+
+    margin-top:15px;
+
+}
+
+.modal-content p{
+
+    color:#777;
+
+    margin:15px 0;
+
+}
+
+/* รูป GIF */
+
+.gif{
+
+    width:160px;
+
+    border-radius:20px;
+
+}
+
+/* ปุ่มใน popup */
+
+.popup-btn{
+
+    border:none;
+
+    padding:12px 25px;
+
+    margin:8px;
+
+    border-radius:20px;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.confirm{
+
+    background:linear-gradient(45deg,#ff7eb3,#ff4d94);
+
+}
+
+.cancel{
+
+    background:linear-gradient(45deg,#ffb6c1,#ff8fab);
+
+}
+
+.popup-btn:hover{
+
+    transform:scale(1.05);
+
+}
+
 </style>
+
 </head>
+
 <body>
 
 <button class="btn" onclick="openModal()">
-    🚀 Next Page
+
+💖 Next Page
+
 </button>
 
-<div id="myModal" class="modal">
-    <div class="modal-content">
-        <h3>ไปหน้าถัดไป?</h3>
-        <p>กด "ตกลง" เพื่อเปิดหน้าถัดไป</p>
+<div class="modal" id="myModal">
 
-        <button class="popup-btn confirm" onclick="goNext()">
-            ตกลง
-        </button>
+<div class="modal-content">
 
-        <button class="popup-btn cancel" onclick="closeModal()">
-            ยกเลิก
-        </button>
-    </div>
+<img class="gif"
+
+src="https://media.tenor.com/1kQ7Y2G6l7YAAAAi/my-melody.gif">
+
+<h2>🌷 ไปหน้าถัดไปไหม?</h2>
+
+<p>กด "ตกลง" เพื่อเปิด Portfolio ✨</p>
+
+<button class="popup-btn confirm" onclick="goNext()">
+
+🎀 ตกลง
+
+</button>
+
+<button class="popup-btn cancel" onclick="closeModal()">
+
+💗 ยกเลิก
+
+</button>
+
+</div>
+
 </div>
 
 <script>
-function openModal() {
-    document.getElementById("myModal").style.display = "block";
+
+function openModal(){
+
+    document.getElementById("myModal").style.display="block";
+
 }
 
-function closeModal() {
-    document.getElementById("myModal").style.display = "none";
+function closeModal(){
+
+    document.getElementById("myModal").style.display="none";
+
 }
 
-function goNext() {
-    window.location.href = "portfolio.html";
+function goNext(){
+
+    window.location.href="portfolio.html";
+
 }
+
 </script>
 
 </body>
-</html>
 
-</div>
-</body>
 </html>
