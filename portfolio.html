@@ -1,205 +1,91 @@
 <!DOCTYPE html>
-
 <html lang="th">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Portfolio ของฉัน 💖</title>
 
 <style>
-
 *{
-
     margin:0;
-
     padding:0;
-
     box-sizing:border-box;
-
     font-family:'Trebuchet MS',sans-serif;
-
 }
 
 body{
-
     min-height:100vh;
-
     background:linear-gradient(135deg,#ffd6e7,#ffe4f3,#f7ddff);
-
     text-align:center;
-
-    overflow-x:hidden;
-
-}
-
-/* ของตกแต่ง */
-
-body::before{
-
-    content:"💗";
-
-    position:fixed;
-
-    top:40px;
-
-    left:50px;
-
-    font-size:60px;
-
-    opacity:.4;
-
-}
-
-body::after{
-
-    content:"✨";
-
-    position:fixed;
-
-    bottom:50px;
-
-    right:60px;
-
-    font-size:55px;
-
-    opacity:.4;
-
 }
 
 .container{
-
     max-width:850px;
-
     margin:auto;
-
     padding:40px 20px;
-
 }
 
 h1{
-
     color:#ff4f9a;
-
     font-size:55px;
-
     margin-bottom:20px;
-
 }
 
-/* รูปใต้ Portfolio */
-
+/* รูปโปรไฟล์วงกลม */
 .profile-img{
-
     width:180px;
-
     height:180px;
-
     object-fit:cover;
-
     border-radius:50%;
-
     border:6px solid white;
-
     box-shadow:0 8px 20px rgba(255,105,180,.3);
-
     margin-bottom:25px;
-
 }
 
 .subtitle{
-
     color:#8b5f82;
-
     font-size:18px;
-
     margin-bottom:40px;
-
 }
 
-/* กล่องผลงาน */
-
 .project-card{
-
     background:rgba(255,255,255,.7);
-
     backdrop-filter:blur(15px);
-
     border-radius:30px;
-
     padding:30px;
-
     margin:25px 0;
-
     text-align:left;
-
     box-shadow:0 10px 25px rgba(255,105,180,.2);
-
     transition:.3s;
-
 }
 
 .project-card:hover{
-
     transform:translateY(-8px);
-
 }
 
 .project-card h3{
-
     color:#ff4f9a;
-
     margin-bottom:15px;
-
 }
 
 .project-card p{
-
     color:#666;
-
     line-height:1.8;
-
 }
-
-/* ปุ่มกลับหน้าแรก */
 
 .btn{
-
     display:inline-block;
-
     margin-top:30px;
-
     padding:16px 35px;
-
     border-radius:50px;
-
     text-decoration:none;
-
     color:white;
-
     font-size:18px;
-
     font-weight:bold;
-
     background:linear-gradient(45deg,#ff8bb8,#ff5fa2);
-
     box-shadow:0 8px 20px rgba(255,105,180,.4);
-
-    transition:.3s;
-
 }
-
-.btn:hover{
-
-    transform:scale(1.05);
-
-}
-
 </style>
-
 </head>
 
 <body>
@@ -208,66 +94,32 @@ h1{
 
     <h1>🌷 Portfolio 🌷</h1>
 
-    <!-- ใส่รูปของตัวเองตรง src -->
-
-    <img src="myphoto.jpg" alt="Profile" class="profile-img">
+    <!-- รูปของตัวเอง -->
+    <img src="IMG_0005.jpeg" alt="Profile" class="profile-img">
 
     <p class="subtitle">
-
         นี่คือพื้นที่รวบรวมผลงานและกิจกรรมที่ภาคภูมิใจของฉัน ✨
-
     </p>
 
-    <!-- ผลงานที่ 1 -->
-
     <div class="project-card">
-
         <h3>💻 1. โครงงานวิทยาศาสตร์คำนวณ</h3>
-
         <p>
-
-            รายละเอียดชิ้นงาน :
-
-            เขียนอธิบายสั้น ๆ ว่าโครงงานนี้เกี่ยวกับอะไร
-
-            มีขั้นตอนการทำอย่างไร
-
-            และได้เรียนรู้อะไรจากการทำงานชิ้นนี้บ้าง
-
+            เขียนอธิบายรายละเอียดของโครงงานที่ทำ และสิ่งที่ได้เรียนรู้จากการทำงานชิ้นนี้
         </p>
-
     </div>
-
-    <!-- ผลงานที่ 2 -->
 
     <div class="project-card">
-
         <h3>🏆 2. กิจกรรมและเกียรติบัตรที่ได้รับ</h3>
-
         <p>
-
-            รายละเอียดกิจกรรม :
-
-            เข้าร่วมการแข่งขัน กิจกรรมของโรงเรียน
-
-            หรือได้รับเกียรติบัตรต่าง ๆ
-
-            ที่แสดงถึงความสามารถและประสบการณ์
-
+            รวบรวมกิจกรรม การแข่งขัน และเกียรติบัตรต่าง ๆ ที่เคยได้รับ
         </p>
-
     </div>
-
-    <!-- ปุ่มกลับหน้าแรก -->
 
     <a href="index.html" class="btn">
-
         🔙 กลับหน้าแรก
-
     </a>
 
 </div>
 
 </body>
-
 </html>
