@@ -1,0 +1,789 @@
+/* =========================================
+   THANYAPORN PORTFOLIO
+   COLOR THEME
+   #DCDCDC  Gray
+   #FFF8DC  Cream
+   #FFD700  Gold
+   #6495ED  Cornflower Blue
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    font-family: "Trebuchet MS", "Tahoma", sans-serif;
+    color: #000000;
+
+    background:
+        radial-gradient(circle at 10% 15%, #FFF8DC 0%, transparent 30%),
+        radial-gradient(circle at 90% 80%, #DCDCDC 0%, transparent 35%),
+        linear-gradient(135deg, #DCDCDC, #FFF8DC, #DCDCDC);
+
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    min-height: 82px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 15px 20px;
+
+    background: rgba(255, 248, 220, 0.95);
+
+    border-bottom: 3px solid #FFD700;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+
+    z-index: 1000;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+}
+
+.nav-menu a {
+    position: relative;
+
+    color: #000000;
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    padding: 12px 20px;
+
+    border-radius: 25px;
+
+    transition: 0.3s;
+}
+
+/* ก้อนเมฆด้านซ้าย */
+
+.nav-menu a::before {
+    content: "☁️";
+
+    position: absolute;
+
+    left: -8px;
+    top: -7px;
+
+    font-size: 25px;
+
+    z-index: -1;
+}
+
+/* ก้อนเมฆด้านขวา */
+
+.nav-menu a::after {
+    content: "☁️";
+
+    position: absolute;
+
+    right: -8px;
+    bottom: -7px;
+
+    font-size: 25px;
+
+    z-index: -1;
+}
+
+.nav-menu a:hover {
+    transform: translateY(-4px);
+
+    background: rgba(100, 149, 237, 0.18);
+}
+
+
+/* =========================================
+   FLOATING SUN
+========================================= */
+
+.floating-sun {
+    position: fixed;
+
+    font-size: 55px;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    animation: sunFloat 6s ease-in-out infinite;
+}
+
+.sun-1 {
+    top: 115px;
+    left: 5%;
+}
+
+.sun-2 {
+    right: 6%;
+    bottom: 10%;
+
+    animation-delay: 2s;
+}
+
+@keyframes sunFloat {
+
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(5deg);
+    }
+}
+
+
+/* =========================================
+   FLOATING CLOUDS
+========================================= */
+
+.floating-cloud {
+    position: fixed;
+
+    font-size: 60px;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    animation: cloudFloat 8s ease-in-out infinite;
+}
+
+.cloud-1 {
+    top: 25%;
+    right: 5%;
+}
+
+.cloud-2 {
+    bottom: 18%;
+    left: 5%;
+
+    animation-delay: 2s;
+}
+
+.cloud-3 {
+    top: 50%;
+    right: 12%;
+
+    font-size: 45px;
+
+    animation-delay: 4s;
+}
+
+@keyframes cloudFloat {
+
+    0%, 100% {
+        transform: translateX(0) translateY(0);
+    }
+
+    50% {
+        transform: translateX(30px) translateY(-15px);
+    }
+}
+
+
+/* =========================================
+   GENERAL PAGE
+========================================= */
+
+.page {
+    min-height: 100vh;
+
+    padding: 145px 30px 70px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================
+   PAGE TITLE
+========================================= */
+
+.page-title {
+    font-size: clamp(50px, 8vw, 90px);
+
+    font-weight: 900;
+
+    text-align: center;
+
+    letter-spacing: 4px;
+
+    color: #000000;
+
+    margin-bottom: 45px;
+}
+
+.page-title::after {
+    content: "";
+
+    display: block;
+
+    width: 120px;
+    height: 6px;
+
+    background: #FFD700;
+
+    border-radius: 20px;
+
+    margin: 18px auto 0;
+}
+
+
+/* =========================================
+   GENERAL CONTENT BOX
+========================================= */
+
+.content-box {
+    width: min(1000px, 95%);
+
+    background: rgba(255, 255, 255, 0.78);
+
+    border: 3px solid #6495ED;
+
+    border-radius: 35px;
+
+    padding: 45px;
+
+    position: relative;
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.15);
+
+    z-index: 2;
+}
+
+/* กรอบทองด้านใน */
+
+.content-box::before {
+    content: "";
+
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+
+    border: 2px solid rgba(255, 215, 0, 0.55);
+
+    border-radius: 27px;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   HOME PAGE
+========================================= */
+
+.home-container {
+    min-height: 100vh;
+
+    padding: 135px 25px 60px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* PORTFOLIO TITLE */
+
+.portfolio-title {
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.small-title {
+    font-size: 22px;
+
+    font-weight: bold;
+
+    letter-spacing: 6px;
+}
+
+.portfolio-title h1 {
+    font-size: clamp(55px, 10vw, 110px);
+
+    font-weight: 900;
+
+    letter-spacing: 7px;
+
+    line-height: 1;
+
+    color: #000000;
+}
+
+.gold-line {
+    width: 130px;
+    height: 6px;
+
+    background: #FFD700;
+
+    border-radius: 20px;
+
+    margin: 18px auto 12px;
+}
+
+.subtitle {
+    font-size: 17px;
+
+    letter-spacing: 5px;
+
+    font-weight: bold;
+}
+
+
+/* PROFILE */
+
+.profile-wrapper {
+    margin: 10px 0 28px;
+
+    position: relative;
+}
+
+.profile-border {
+    width: 230px;
+    height: 290px;
+
+    padding: 8px;
+
+    background: #FFF8DC;
+
+    border: 5px solid #FFD700;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.20);
+}
+
+.profile-border img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 20px;
+}
+
+
+/* HOME INFORMATION */
+
+.home-card {
+    width: min(900px, 95%);
+
+    background: rgba(255, 255, 255, 0.78);
+
+    border: 3px solid #6495ED;
+
+    border-radius: 30px;
+
+    padding: 32px 40px;
+
+    text-align: center;
+
+    position: relative;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.home-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 9px;
+
+    border: 2px solid rgba(255, 215, 0, 0.55);
+
+    border-radius: 22px;
+
+    pointer-events: none;
+}
+
+.home-card h2 {
+    position: relative;
+
+    font-size: 30px;
+
+    margin-bottom: 5px;
+}
+
+.english-name {
+    position: relative;
+
+    font-size: 20px;
+
+    margin-bottom: 20px;
+}
+
+.information {
+    position: relative;
+}
+
+.info {
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    margin: 8px 0;
+}
+
+.info span {
+    font-weight: bold;
+
+    margin-right: 8px;
+}
+
+.info.university {
+    border-top: 2px solid rgba(100, 149, 237, 0.4);
+
+    padding-top: 15px;
+
+    margin-top: 15px;
+}
+
+.info.university strong {
+    font-size: 20px;
+}
+
+
+/* =========================================
+   PREFACE
+========================================= */
+
+.preface-text {
+    position: relative;
+
+    font-size: 22px;
+
+    line-height: 2.1;
+
+    text-align: justify;
+}
+
+
+/* =========================================
+   PERSONAL
+========================================= */
+
+.section-title {
+    position: relative;
+
+    text-align: center;
+
+    font-size: 32px;
+
+    font-weight: 900;
+
+    margin-bottom: 30px;
+}
+
+.personal-grid {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px 25px;
+}
+
+.personal-item {
+    background: rgba(255, 248, 220, 0.8);
+
+    border-left: 7px solid #FFD700;
+
+    border-radius: 15px;
+
+    padding: 17px 20px;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    transition: 0.3s;
+}
+
+.personal-item:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================
+   ACTIVITIES
+========================================= */
+
+.activities-grid {
+    width: min(1100px, 95%);
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 30px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.activity-card {
+    background: rgba(255, 255, 255, 0.82);
+
+    border: 3px solid #6495ED;
+
+    border-radius: 30px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    box-shadow:
+        0 15px 30px rgba(0, 0, 0, 0.13);
+
+    transition: 0.3s;
+}
+
+.activity-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.20);
+}
+
+.activity-card img {
+    width: 100%;
+
+    height: 230px;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+    border: 4px solid #FFD700;
+
+    margin-bottom: 15px;
+}
+
+.activity-card h3 {
+    font-size: 24px;
+
+    margin-bottom: 12px;
+}
+
+.activity-card p {
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.contact-box {
+    max-width: 800px;
+}
+
+.contact-item {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    background: rgba(255, 248, 220, 0.8);
+
+    border: 2px solid #6495ED;
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+    margin: 18px 0;
+
+    font-size: 20px;
+}
+
+.contact-icon {
+    font-size: 35px;
+
+    min-width: 50px;
+}
+
+.contact-item a {
+    color: #000000;
+
+    text-decoration: none;
+
+    word-break: break-word;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    text-align: center;
+
+    padding: 22px;
+
+    background: #FFF8DC;
+
+    border-top: 2px solid #FFD700;
+
+    font-size: 15px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    nav {
+        min-height: 75px;
+
+        padding: 10px;
+    }
+
+    .nav-menu {
+        gap: 3px;
+    }
+
+    .nav-menu a {
+        font-size: 12px;
+
+        padding: 8px 13px;
+    }
+
+    .page {
+        padding-top: 145px;
+    }
+
+    .portfolio-title h1 {
+        font-size: 55px;
+
+        letter-spacing: 3px;
+    }
+
+    .small-title {
+        font-size: 17px;
+    }
+
+    .subtitle {
+        font-size: 12px;
+
+        letter-spacing: 3px;
+    }
+
+    .profile-border {
+        width: 210px;
+        height: 265px;
+    }
+
+    .home-card {
+        padding: 28px 18px;
+    }
+
+    .home-card h2 {
+        font-size: 24px;
+    }
+
+    .english-name {
+        font-size: 17px;
+    }
+
+    .info {
+        font-size: 16px;
+    }
+
+    .content-box {
+        padding: 30px 20px;
+    }
+
+    .preface-text {
+        font-size: 18px;
+    }
+
+    .personal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .activities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .floating-sun {
+        font-size: 40px;
+    }
+
+    .floating-cloud {
+        font-size: 45px;
+    }
+}
