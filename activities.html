@@ -18,10 +18,16 @@ content="width=device-width, initial-scale=1.0">
     box-sizing:border-box;
 }
 
+html,body{
+    width:100%;
+    min-height:100%;
+}
+
 body{
     font-family:"Trebuchet MS","Tahoma",sans-serif;
     color:#000000;
     min-height:100vh;
+    overflow-x:hidden;
 
     background:
     radial-gradient(circle at 10% 20%,#FFF8DC,transparent 30%),
@@ -30,7 +36,10 @@ body{
 }
 
 
-/* MENU */
+/* =========================
+   MENU
+   เหมือนหน้าคำนำ
+========================= */
 
 nav{
     position:fixed;
@@ -39,69 +48,109 @@ nav{
     width:100%;
     z-index:1000;
 
-    padding:16px 20px;
+    padding:14px 20px;
 
     background:rgba(255,248,220,0.96);
 
     border-bottom:3px solid #FFD700;
 
-    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+    box-shadow:
+    0 5px 20px rgba(0,0,0,0.15);
 }
 
 .menu{
     display:flex;
+
     justify-content:center;
+
+    align-items:center;
+
     flex-wrap:wrap;
-    gap:20px;
+
+    gap:12px;
 }
+
+
+/* ปุ่ม */
 
 .menu a{
-    position:relative;
 
     color:#000000;
-    text-decoration:none;
 
-    font-size:16px;
+    font-family:"Trebuchet MS","Tahoma",sans-serif;
+
     font-weight:bold;
 
-    padding:12px 20px;
+    font-size:16px;
 
-    transition:0.3s;
+    padding:11px 20px;
+
+    background:#FFFDF2;
+
+    border:2px solid #FFD700;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 5px 12px rgba(0,0,0,0.12);
+
+    transition:0.3s ease;
+
+    text-decoration:none;
+
+    display:inline-block;
 }
 
-.menu a::before{
-    content:"☁️";
-    position:absolute;
-    left:-8px;
-    top:-6px;
-    font-size:24px;
-}
 
-.menu a::after{
-    content:"☁️";
-    position:absolute;
-    right:-8px;
-    bottom:-7px;
-    font-size:24px;
-}
+/* hover */
 
 .menu a:hover{
-    color:#6495ED;
+
+    background:#FFD700;
+
     transform:translateY(-4px);
+
+    box-shadow:
+    0 9px 18px rgba(0,0,0,0.20);
 }
 
 
-/* FLOAT */
+/* หน้าที่กำลังเปิด */
+
+.menu a.active{
+
+    background:#FFD700;
+
+    color:#000000;
+
+    box-shadow:
+    0 7px 16px rgba(0,0,0,0.20);
+}
+
+
+/* =========================
+   ของตกแต่ง
+========================= */
 
 .sun{
+
     position:fixed;
+
     font-size:55px;
-    animation:sun 6s ease-in-out infinite;
+
+    pointer-events:none;
+
+    z-index:1;
+
+    animation:
+    float 6s ease-in-out infinite;
 }
 
 .sun1{
     top:120px;
-    left:5%;
+    left:6%;
 }
 
 .sun2{
@@ -111,14 +160,22 @@ nav{
 }
 
 .cloud{
+
     position:fixed;
+
     font-size:60px;
-    animation:cloud 8s ease-in-out infinite;
+
+    pointer-events:none;
+
+    z-index:1;
+
+    animation:
+    cloud 8s ease-in-out infinite;
 }
 
 .cloud1{
-    top:28%;
-    right:5%;
+    top:30%;
+    right:6%;
 }
 
 .cloud2{
@@ -134,7 +191,7 @@ nav{
     animation-delay:4s;
 }
 
-@keyframes sun{
+@keyframes float{
 
     0%,100%{
         transform:translateY(0);
@@ -143,7 +200,6 @@ nav{
     50%{
         transform:translateY(-25px);
     }
-
 }
 
 @keyframes cloud{
@@ -153,44 +209,58 @@ nav{
     }
 
     50%{
-        transform:translateX(30px) translateY(-15px);
+        transform:
+        translateX(30px)
+        translateY(-15px);
     }
-
 }
 
 
-/* PAGE */
+/* =========================
+   PAGE
+========================= */
 
 .page{
+
     min-height:100vh;
 
-    padding:150px 25px 70px;
+    padding:
+    150px 25px 70px;
 
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
 
     position:relative;
+
     z-index:2;
 }
 
 
-/* TITLE */
+/* =========================
+   TITLE
+========================= */
 
 .page-title{
-    font-size:clamp(45px,7vw,80px);
+
+    font-size:
+    clamp(45px,7vw,80px);
 
     text-align:center;
 
-    margin-bottom:40px;
+    margin-bottom:20px;
 }
 
 .page-title::after{
+
     content:"";
 
     display:block;
 
     width:120px;
+
     height:6px;
 
     background:#FFD700;
@@ -201,9 +271,51 @@ nav{
 }
 
 
-/* ACTIVITIES */
+/* =========================
+   รูปใต้หัวข้อ
+========================= */
+
+.activities-image{
+
+    width:320px;
+
+    height:210px;
+
+    object-fit:cover;
+
+    border:5px solid #FFD700;
+
+    border-radius:25px;
+
+    padding:5px;
+
+    background:#FFF8DC;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.18);
+
+    margin-bottom:40px;
+
+    transition:0.3s ease;
+}
+
+.activities-image:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.02);
+
+    box-shadow:
+    0 15px 30px rgba(0,0,0,0.22);
+}
+
+
+/* =========================
+   ACTIVITIES
+========================= */
 
 .activities{
+
     width:min(1100px,95%);
 
     display:grid;
@@ -214,10 +326,14 @@ nav{
 }
 
 
-/* CARD */
+/* =========================
+   CARD
+========================= */
 
 .card{
-    background:rgba(255,255,255,0.84);
+
+    background:
+    rgba(255,255,255,0.84);
 
     border:3px solid #6495ED;
 
@@ -234,16 +350,52 @@ nav{
 }
 
 .card:hover{
-    transform:translateY(-7px);
+
+    transform:
+    translateY(-7px);
 
     box-shadow:
     0 20px 40px rgba(0,0,0,0.2);
 }
 
 
-/* รูป */
+/* =========================
+   เกียรติบัตร 2 ใบ
+========================= */
 
-.card img{
+.certificate-images{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+
+    margin-bottom:18px;
+}
+
+.certificate-images img{
+
+    width:100%;
+
+    height:240px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+    border:4px solid #FFD700;
+
+    background:#FFF8DC;
+}
+
+
+/* =========================
+   รูปกิจกรรมทั่วไป
+========================= */
+
+.card > img{
+
     width:100%;
 
     height:220px;
@@ -258,30 +410,20 @@ nav{
 }
 
 
-/* รูปคู่ */
-
-.double-image{
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:12px;
-}
-
-.double-image img{
-    height:200px;
-}
-
-
-/* TEXT */
+/* =========================
+   TEXT
+========================= */
 
 .card h2{
+
     font-size:25px;
 
-    margin:10px 0 12px;
+    margin:
+    10px 0 12px;
 }
 
 .card p{
+
     font-size:17px;
 
     line-height:1.8;
@@ -290,35 +432,75 @@ nav{
 }
 
 
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:700px){
 
+    nav{
+
+        padding:
+        10px 8px;
+    }
+
     .menu{
-        gap:3px;
+
+        gap:6px;
     }
 
     .menu a{
+
         font-size:11px;
-        padding:8px 12px;
+
+        padding:
+        8px 11px;
+
+        border-radius:13px;
     }
 
     .page{
-        padding-top:145px;
+
+        padding:
+        145px 15px 50px;
+    }
+
+    .page-title{
+
+        font-size:42px;
+    }
+
+    .activities-image{
+
+        width:90%;
+
+        max-width:300px;
+
+        height:auto;
+
+        aspect-ratio:3/2;
+
+        margin-bottom:30px;
     }
 
     .activities{
+
         grid-template-columns:1fr;
     }
 
     .card{
+
         padding:18px;
     }
 
     .card p{
+
         font-size:15px;
     }
 
-    .double-image img{
-        height:150px;
+    .certificate-images img{
+
+        height:170px;
     }
 
 }
@@ -331,35 +513,68 @@ nav{
 <body>
 
 
+<!-- =========================
+     MENU
+========================= -->
+
 <nav>
 
 <div class="menu">
 
-<a href="index.html">หน้าหลัก</a>
+<a href="index.html">
+หน้าหลัก
+</a>
 
-<a href="preface.html">คำนำ</a>
+<a href="preface.html">
+คำนำ
+</a>
 
-<a href="personal.html">ประวัติส่วนตัว</a>
+<a href="personal.html">
+ประวัติส่วนตัว
+</a>
 
-<a href="activities.html">ผลงานและกิจกรรม</a>
+<a href="activities.html"
+class="active">
+ผลงานและกิจกรรม
+</a>
 
-<a href="contact.html">ช่องทางการติดต่อ</a>
+<a href="contact.html">
+ช่องทางการติดต่อ
+</a>
 
 </div>
 
 </nav>
 
 
-<div class="sun sun1">☀️</div>
+<!-- =========================
+     ของตกแต่ง
+========================= -->
 
-<div class="sun sun2">☀️</div>
+<div class="sun sun1">
+☀️
+</div>
 
-<div class="cloud cloud1">☁️</div>
+<div class="sun sun2">
+☀️
+</div>
 
-<div class="cloud cloud2">☁️</div>
+<div class="cloud cloud1">
+☁️
+</div>
 
-<div class="cloud cloud3">☁️</div>
+<div class="cloud cloud2">
+☁️
+</div>
 
+<div class="cloud cloud3">
+☁️
+</div>
+
+
+<!-- =========================
+     PAGE
+========================= -->
 
 <main class="page">
 
@@ -369,23 +584,65 @@ nav{
 </h1>
 
 
+<!-- รูปใต้หัวข้อ -->
+
+<img
+src="images/activities-main.jpg"
+alt="รูปผลงานและกิจกรรม"
+class="activities-image">
+
+
 <div class="activities">
 
 
-<!-- กิจกรรม 1 -->
+<!-- =========================
+     กิจกรรมที่ 1
+========================= -->
 
 <div class="card">
 
 
-<div class="double-image">
+<div class="certificate-images">
 
-<img src="images/activity1-1.jpg"
-alt="ฝึกประสบการณ์คลินิกทันตกรรม">
+<img
+src="images/certificate1.jpg"
+alt="เกียรติบัตรใบที่ 1">
 
-<img src="images/activity1-2.jpg"
-alt="ฝึกประสบการณ์คลินิกทันตกรรม">
+<img
+src="images/certificate2.jpg"
+alt="เกียรติบัตรใบที่ 2">
 
 </div>
+
+
+<h2>
+เกียรติบัตรและผลงาน
+</h2>
+
+
+<p>
+
+ได้รับเกียรติบัตรจากการเข้าร่วมกิจกรรม
+และการพัฒนาความรู้และทักษะต่าง ๆ
+ซึ่งเป็นประสบการณ์ที่ช่วยส่งเสริมความสามารถ
+และนำความรู้ที่ได้รับมาพัฒนาตนเอง
+
+</p>
+
+
+</div>
+
+
+<!-- =========================
+     กิจกรรมที่ 2
+========================= -->
+
+<div class="card">
+
+
+<img
+src="images/activity1.jpg"
+alt="ฝึกประสบการณ์ที่คลินิกทันตกรรม">
 
 
 <h2>
@@ -396,9 +653,10 @@ alt="ฝึกประสบการณ์คลินิกทันตกร
 <p>
 
 ได้ไปฝึกประสบการณ์ที่คลินิกทันตกรรมเอสซี
-ซึ่งได้เรียนรู้ในการเอกซเรย์ฟัน
-การพิมพ์ฟัน
-และการตรวจสุขภาพช่องปาก
+ได้เรียนรู้เกี่ยวกับการเอกซเรย์ฟัน
+การพิมพ์ฟัน และการตรวจสุขภาพช่องปาก
+ทำให้ได้เห็นการทำงานจริง
+และได้เรียนรู้การทำงานของบุคลากรทางทันตกรรม
 
 </p>
 
@@ -406,73 +664,70 @@ alt="ฝึกประสบการณ์คลินิกทันตกร
 </div>
 
 
-<!-- กิจกรรม 2 -->
+<!-- =========================
+     กิจกรรมที่ 3
+========================= -->
 
 <div class="card">
 
-<img src="images/activity2.jpg"
-alt="กิจกรรมที่ 2">
 
-<h2>
-กิจกรรมที่ 2
-</h2>
-
-<p>
-
-สามารถเพิ่มรายละเอียด
-ผลงานหรือกิจกรรมที่ 2
-ของเมลได้ที่บริเวณนี้
-
-</p>
-
-</div>
-
-
-<!-- กิจกรรม 3 -->
-
-<div class="card">
-
-<img src="images/activity3.jpg"
+<img
+src="images/activity2.jpg"
 alt="กิจกรรมที่ 3">
 
+
 <h2>
-กิจกรรมที่ 3
+กิจกรรมด้านวิทยาศาสตร์
 </h2>
+
 
 <p>
 
-สามารถเพิ่มรายละเอียด
-ผลงานหรือกิจกรรมที่ 3
-ของเมลได้ที่บริเวณนี้
+เข้าร่วมกิจกรรมที่เกี่ยวข้องกับวิทยาศาสตร์
+ได้ฝึกการคิดวิเคราะห์ การทดลอง
+และการทำงานร่วมกับผู้อื่น
+ทำให้เกิดความสนใจในการนำความรู้ทางวิทยาศาสตร์
+ไปประยุกต์ใช้ในชีวิตประจำวัน
 
 </p>
+
 
 </div>
 
 
-<!-- กิจกรรม 4 -->
+<!-- =========================
+     กิจกรรมที่ 4
+========================= -->
 
 <div class="card">
 
-<img src="images/activity4.jpg"
+
+<img
+src="images/activity3.jpg"
 alt="กิจกรรมที่ 4">
 
+
 <h2>
-กิจกรรมที่ 4
+กิจกรรมจิตอาสาและการทำงานร่วมกัน
 </h2>
+
 
 <p>
 
-สามารถเพิ่มรายละเอียด
-ผลงานหรือกิจกรรมที่ 4
-ของเมลได้ที่บริเวณนี้
+เข้าร่วมกิจกรรมจิตอาสาและกิจกรรมของโรงเรียน
+ได้ฝึกความรับผิดชอบ การทำงานเป็นทีม
+การช่วยเหลือผู้อื่น และการทำงานร่วมกับเพื่อน
+ซึ่งเป็นประสบการณ์ที่ช่วยพัฒนาทักษะด้านการสื่อสาร
+และการทำงานร่วมกับผู้อื่น
 
 </p>
 
+
 </div>
 
 
 </div>
+
 
 </main>
 
