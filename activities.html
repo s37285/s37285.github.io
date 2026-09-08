@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>ผลงานและกิจกรรม | Portfolio</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Trebuchet MS","Tahoma",sans-serif;
+    color:#000000;
+    min-height:100vh;
+
+    background:
+    radial-gradient(circle at 10% 20%,#FFF8DC,transparent 30%),
+    radial-gradient(circle at 90% 80%,#DCDCDC,transparent 35%),
+    linear-gradient(135deg,#DCDCDC,#FFF8DC);
+}
+
+
+/* MENU */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+
+    padding:16px 20px;
+
+    background:rgba(255,248,220,0.96);
+
+    border-bottom:3px solid #FFD700;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+}
+
+.menu{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.menu a{
+    position:relative;
+
+    color:#000000;
+    text-decoration:none;
+
+    font-size:16px;
+    font-weight:bold;
+
+    padding:12px 20px;
+
+    transition:0.3s;
+}
+
+.menu a::before{
+    content:"☁️";
+    position:absolute;
+    left:-8px;
+    top:-6px;
+    font-size:24px;
+}
+
+.menu a::after{
+    content:"☁️";
+    position:absolute;
+    right:-8px;
+    bottom:-7px;
+    font-size:24px;
+}
+
+.menu a:hover{
+    color:#6495ED;
+    transform:translateY(-4px);
+}
+
+
+/* FLOAT */
+
+.sun{
+    position:fixed;
+    font-size:55px;
+    animation:sun 6s ease-in-out infinite;
+}
+
+.sun1{
+    top:120px;
+    left:5%;
+}
+
+.sun2{
+    bottom:10%;
+    right:7%;
+    animation-delay:2s;
+}
+
+.cloud{
+    position:fixed;
+    font-size:60px;
+    animation:cloud 8s ease-in-out infinite;
+}
+
+.cloud1{
+    top:28%;
+    right:5%;
+}
+
+.cloud2{
+    bottom:18%;
+    left:6%;
+    animation-delay:2s;
+}
+
+.cloud3{
+    top:55%;
+    right:15%;
+    font-size:45px;
+    animation-delay:4s;
+}
+
+@keyframes sun{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-25px);
+    }
+
+}
+
+@keyframes cloud{
+
+    0%,100%{
+        transform:translateX(0);
+    }
+
+    50%{
+        transform:translateX(30px) translateY(-15px);
+    }
+
+}
+
+
+/* PAGE */
+
+.page{
+    min-height:100vh;
+
+    padding:150px 25px 70px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    position:relative;
+    z-index:2;
+}
+
+
+/* TITLE */
+
+.page-title{
+    font-size:clamp(45px,7vw,80px);
+
+    text-align:center;
+
+    margin-bottom:40px;
+}
+
+.page-title::after{
+    content:"";
+
+    display:block;
+
+    width:120px;
+    height:6px;
+
+    background:#FFD700;
+
+    border-radius:20px;
+
+    margin:18px auto;
+}
+
+
+/* ACTIVITIES */
+
+.activities{
+    width:min(1100px,95%);
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
+}
+
+
+/* CARD */
+
+.card{
+    background:rgba(255,255,255,0.84);
+
+    border:3px solid #6495ED;
+
+    border-radius:30px;
+
+    padding:25px;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.15);
+
+    transition:0.3s;
+
+    text-align:center;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,0.2);
+}
+
+
+/* รูป */
+
+.card img{
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    border:4px solid #FFD700;
+
+    margin-bottom:15px;
+}
+
+
+/* รูปคู่ */
+
+.double-image{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+}
+
+.double-image img{
+    height:200px;
+}
+
+
+/* TEXT */
+
+.card h2{
+    font-size:25px;
+
+    margin:10px 0 12px;
+}
+
+.card p{
+    font-size:17px;
+
+    line-height:1.8;
+
+    text-align:justify;
+}
+
+
+@media(max-width:700px){
+
+    .menu{
+        gap:3px;
+    }
+
+    .menu a{
+        font-size:11px;
+        padding:8px 12px;
+    }
+
+    .page{
+        padding-top:145px;
+    }
+
+    .activities{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        padding:18px;
+    }
+
+    .card p{
+        font-size:15px;
+    }
+
+    .double-image img{
+        height:150px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+<div class="menu">
+
+<a href="index.html">หน้าหลัก</a>
+
+<a href="preface.html">คำนำ</a>
+
+<a href="personal.html">ประวัติส่วนตัว</a>
+
+<a href="activities.html">ผลงานและกิจกรรม</a>
+
+<a href="contact.html">ช่องทางการติดต่อ</a>
+
+</div>
+
+</nav>
+
+
+<div class="sun sun1">☀️</div>
+
+<div class="sun sun2">☀️</div>
+
+<div class="cloud cloud1">☁️</div>
+
+<div class="cloud cloud2">☁️</div>
+
+<div class="cloud cloud3">☁️</div>
+
+
+<main class="page">
+
+
+<h1 class="page-title">
+ผลงานและกิจกรรม
+</h1>
+
+
+<div class="activities">
+
+
+<!-- กิจกรรม 1 -->
+
+<div class="card">
+
+
+<div class="double-image">
+
+<img src="images/activity1-1.jpg"
+alt="ฝึกประสบการณ์คลินิกทันตกรรม">
+
+<img src="images/activity1-2.jpg"
+alt="ฝึกประสบการณ์คลินิกทันตกรรม">
+
+</div>
+
+
+<h2>
+ฝึกประสบการณ์ที่คลินิกทันตกรรมเอสซี
+</h2>
+
+
+<p>
+
+ได้ไปฝึกประสบการณ์ที่คลินิกทันตกรรมเอสซี
+ซึ่งได้เรียนรู้ในการเอกซเรย์ฟัน
+การพิมพ์ฟัน
+และการตรวจสุขภาพช่องปาก
+
+</p>
+
+
+</div>
+
+
+<!-- กิจกรรม 2 -->
+
+<div class="card">
+
+<img src="images/activity2.jpg"
+alt="กิจกรรมที่ 2">
+
+<h2>
+กิจกรรมที่ 2
+</h2>
+
+<p>
+
+สามารถเพิ่มรายละเอียด
+ผลงานหรือกิจกรรมที่ 2
+ของเมลได้ที่บริเวณนี้
+
+</p>
+
+</div>
+
+
+<!-- กิจกรรม 3 -->
+
+<div class="card">
+
+<img src="images/activity3.jpg"
+alt="กิจกรรมที่ 3">
+
+<h2>
+กิจกรรมที่ 3
+</h2>
+
+<p>
+
+สามารถเพิ่มรายละเอียด
+ผลงานหรือกิจกรรมที่ 3
+ของเมลได้ที่บริเวณนี้
+
+</p>
+
+</div>
+
+
+<!-- กิจกรรม 4 -->
+
+<div class="card">
+
+<img src="images/activity4.jpg"
+alt="กิจกรรมที่ 4">
+
+<h2>
+กิจกรรมที่ 4
+</h2>
+
+<p>
+
+สามารถเพิ่มรายละเอียด
+ผลงานหรือกิจกรรมที่ 4
+ของเมลได้ที่บริเวณนี้
+
+</p>
+
+</div>
+
+
+</div>
+
+</main>
+
+
+</body>
+
+</html>
