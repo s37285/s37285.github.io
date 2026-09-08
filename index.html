@@ -2,216 +2,171 @@
 <html lang="th">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Portfolio | Thanyaporn Luangjit</title>
 
     <link rel="stylesheet" href="style.css">
-
 </head>
-
 
 <body>
 
-
-<!-- ==================================
-     แถบเมนูด้านบน
-================================== -->
+<!-- =========================
+     MENU ด้านบน
+     แต่ละปุ่มเปิด HTML คนละไฟล์
+========================= -->
 
 <nav>
-
     <div class="nav-menu">
 
-        <a href="index.html">
-            หน้าหลัก
-        </a>
-
         <a href="preface.html">
-            คำนำ
+            ☁️ คำนำ ☁️
         </a>
 
         <a href="personal.html">
-            ประวัติส่วนตัว
+            ☁️ ประวัติส่วนตัว ☁️
         </a>
 
         <a href="activities.html">
-            ผลงานและกิจกรรม
+            ☁️ ผลงานและกิจกรรม ☁️
         </a>
 
         <a href="contact.html">
-            ช่องทางการติดต่อ
+            ☁️ ช่องทางการติดต่อ ☁️
         </a>
 
     </div>
-
 </nav>
 
 
+<!-- =========================
+     ของตกแต่ง
+========================= -->
 
-<!-- ==================================
-     พระอาทิตย์และก้อนเมฆ
-================================== -->
+<div class="floating-sun sun-1">☀️</div>
+<div class="floating-sun sun-2">☀️</div>
 
-<div class="sun one">
-    ☀️
-</div>
-
-<div class="sun two">
-    ☀️
-</div>
-
-<div class="cloud one">
-    ☁️
-</div>
-
-<div class="cloud two">
-    ☁️
-</div>
+<div class="floating-cloud cloud-1">☁️</div>
+<div class="floating-cloud cloud-2">☁️</div>
+<div class="floating-cloud cloud-3">☁️</div>
 
 
+<!-- =========================
+     เนื้อหาหน้าแรก
+========================= -->
 
-<!-- ==================================
-     หน้าแรก
-================================== -->
-
-<main class="page">
-
-
-    <!-- หัวข้อใหญ่ -->
-
-    <h1 class="home-title">
-        PORTFOLIO
-    </h1>
+<main class="home-container">
 
 
+    <!-- PORTFOLIO -->
 
-    <!-- ==================================
-         รูปภาพตรงกลาง
-         
-         เปลี่ยน profile.jpg
-         เป็นชื่อไฟล์รูปของเมลได้เลย
-    ================================== -->
+    <div class="portfolio-title">
 
-    <div class="profile-frame">
+        <p class="small-title">
+            MY
+        </p>
 
-        <img
-            src="IMG_1028.jpeg"
-            alt="รูปภาพของธันยพร หลวงจิตร"
-            class="profile-image"
-        >
+        <h1>
+            PORTFOLIO
+        </h1>
+
+        <div class="gold-line"></div>
+
+        <p class="subtitle">
+            THANYAPORN LUANGJIT
+        </p>
 
     </div>
 
 
+    <!-- =========================
+         รูปภาพ
+    ========================= -->
 
-    <!-- ==================================
-         ข้อมูลส่วนตัว
-    ================================== -->
+    <div class="profile-wrapper">
 
-    <div class="home-info">
+        <div class="profile-border">
+
+            <img
+                src="IMG_1028.jpeg"
+                alt="Thanyaporn Luangjit"
+            >
+
+        </div>
+
+    </div>
 
 
-        <!-- ชื่อ -->
+    <!-- =========================
+         ข้อมูล
+    ========================= -->
 
-        <div class="name">
+    <div class="home-card">
+
+
+        <h2>
             นางสาวธันยพร หลวงจิตร
-        </div>
+        </h2>
 
 
-        <!-- ชื่อภาษาอังกฤษ -->
-
-        <div class="english-name">
+        <p class="english-name">
             Thanyaporn Luangjit
-        </div>
+        </p>
 
 
-
-        <!-- ข้อมูล -->
-
-        <div class="info-line">
-
-            <strong>
-                ชื่อเล่น
-            </strong>
-
-            เมล
-
-        </div>
+        <div class="information">
 
 
-        <div class="info-line">
-
-            <strong>
-                Nickname
-            </strong>
-
-            Mail
-
-        </div>
+            <div class="info">
+                <span>ชื่อเล่น</span>
+                เมล
+            </div>
 
 
-        <div class="info-line">
-
-            <strong>
-                ระดับชั้น
-            </strong>
-
-            มัธยมศึกษาชั้นปีที่ 6/2
-
-        </div>
+            <div class="info">
+                <span>Nickname</span>
+                Mail
+            </div>
 
 
-        <div class="info-line">
-
-            <strong>
-                แผนการเรียน
-            </strong>
-
-            Gifted Program
-
-        </div>
+            <div class="info">
+                <span>ระดับชั้น</span>
+                มัธยมศึกษาชั้นปีที่ 6/2
+            </div>
 
 
-        <div class="info-line">
+            <div class="info">
+                <span>แผนการเรียน</span>
+                Gifted Program
+            </div>
 
-            <strong>
-                โรงเรียนที่กำลังศึกษาอยู่
-            </strong>
 
-            <br>
+            <div class="info">
+                <span>โรงเรียนที่กำลังศึกษาอยู่</span>
+                โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"
+            </div>
 
-            โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"
+
+            <div class="info university">
+
+                <span>
+                    คณะ-สาขาและมหาวิทยาลัยที่สนใจศึกษาต่อ
+                </span>
+
+                คณะพยาบาลศาสตร์
+                หลักสูตรพยาบาลศาสตรบัณฑิต (พย.บ.)
+
+                <br>
+
+                <strong>
+                    มหาวิทยาลัยบูรพา
+                </strong>
+
+            </div>
+
 
         </div>
-
-
-        <!-- ==================================
-             มหาวิทยาลัยที่สนใจ
-        ================================== -->
-
-        <div class="info-line university">
-
-            <strong>
-                คณะ-สาขาและมหาวิทยาลัยที่สนใจศึกษาต่อ
-            </strong>
-
-            <br>
-
-            คณะพยาบาลศาสตร์
-            หลักสูตรพยาบาลศาสตรบัณฑิต (พย.บ.)
-
-            <br>
-
-            <span>
-                มหาวิทยาลัยบูรพา
-            </span>
-
-        </div>
-
 
     </div>
 
@@ -219,18 +174,18 @@
 </main>
 
 
-
-<!-- ==================================
-     Footer
-================================== -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-    © 2026 Thanyaporn Luangjit
+    <p>
+        © 2026 Thanyaporn Luangjit
+    </p>
 
 </footer>
 
 
 </body>
-
 </html>
