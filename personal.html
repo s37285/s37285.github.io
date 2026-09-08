@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>ประวัติส่วนตัว | Portfolio</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Trebuchet MS","Tahoma",sans-serif;
+    color:#000000;
+    min-height:100vh;
+
+    background:
+    radial-gradient(circle at 10% 20%,#FFF8DC,transparent 30%),
+    radial-gradient(circle at 90% 80%,#DCDCDC,transparent 35%),
+    linear-gradient(135deg,#DCDCDC,#FFF8DC);
+}
+
+
+/* MENU */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+
+    padding:16px 20px;
+
+    background:rgba(255,248,220,0.96);
+
+    border-bottom:3px solid #FFD700;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+}
+
+.menu{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.menu a{
+    position:relative;
+
+    color:#000000;
+    text-decoration:none;
+
+    font-size:16px;
+    font-weight:bold;
+
+    padding:12px 20px;
+
+    transition:0.3s;
+}
+
+.menu a::before{
+    content:"☁️";
+    position:absolute;
+    left:-8px;
+    top:-6px;
+    font-size:24px;
+}
+
+.menu a::after{
+    content:"☁️";
+    position:absolute;
+    right:-8px;
+    bottom:-7px;
+    font-size:24px;
+}
+
+.menu a:hover{
+    color:#6495ED;
+    transform:translateY(-4px);
+}
+
+
+/* FLOAT */
+
+.sun{
+    position:fixed;
+    font-size:55px;
+    animation:sun 6s ease-in-out infinite;
+}
+
+.sun1{
+    top:120px;
+    left:5%;
+}
+
+.sun2{
+    bottom:10%;
+    right:7%;
+    animation-delay:2s;
+}
+
+.cloud{
+    position:fixed;
+    font-size:60px;
+    animation:cloud 8s ease-in-out infinite;
+}
+
+.cloud1{
+    top:28%;
+    right:5%;
+}
+
+.cloud2{
+    bottom:18%;
+    left:6%;
+    animation-delay:2s;
+}
+
+.cloud3{
+    top:55%;
+    right:15%;
+    font-size:45px;
+    animation-delay:4s;
+}
+
+@keyframes sun{
+
+    0%,100%{
+        transform:translateY(0) rotate(0);
+    }
+
+    50%{
+        transform:translateY(-25px) rotate(8deg);
+    }
+
+}
+
+@keyframes cloud{
+
+    0%,100%{
+        transform:translateX(0);
+    }
+
+    50%{
+        transform:translateX(30px) translateY(-15px);
+    }
+
+}
+
+
+/* PAGE */
+
+.page{
+    min-height:100vh;
+
+    padding:150px 25px 70px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
+    z-index:2;
+}
+
+
+/* TITLE */
+
+.page-title{
+    font-size:clamp(48px,8vw,85px);
+
+    text-align:center;
+
+    margin-bottom:40px;
+}
+
+.page-title::after{
+    content:"";
+
+    display:block;
+
+    width:120px;
+    height:6px;
+
+    background:#FFD700;
+
+    border-radius:20px;
+
+    margin:18px auto;
+}
+
+
+/* CONTENT */
+
+.box{
+    width:min(1000px,95%);
+
+    background:rgba(255,255,255,0.83);
+
+    border:3px solid #6495ED;
+
+    border-radius:35px;
+
+    padding:45px;
+
+    box-shadow:
+    0 18px 40px rgba(0,0,0,0.15);
+
+    position:relative;
+}
+
+.box::before{
+    content:"";
+
+    position:absolute;
+
+    inset:10px;
+
+    border:2px solid rgba(255,215,0,0.6);
+
+    border-radius:25px;
+
+    pointer-events:none;
+}
+
+
+/* SECTION */
+
+.section-title{
+    position:relative;
+
+    text-align:center;
+
+    font-size:32px;
+
+    margin-bottom:30px;
+}
+
+
+/* GRID */
+
+.grid{
+    position:relative;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:18px;
+}
+
+.item{
+    background:rgba(255,248,220,0.85);
+
+    border-left:7px solid #FFD700;
+
+    border-radius:16px;
+
+    padding:18px 20px;
+
+    font-size:18px;
+
+    line-height:1.7;
+
+    transition:0.3s;
+}
+
+.item:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 10px 20px rgba(0,0,0,0.12);
+}
+
+
+@media(max-width:700px){
+
+    .menu{
+        gap:3px;
+    }
+
+    .menu a{
+        font-size:11px;
+        padding:8px 12px;
+    }
+
+    .page{
+        padding-top:145px;
+    }
+
+    .box{
+        padding:30px 20px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .item{
+        font-size:16px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+<div class="menu">
+
+<a href="index.html">หน้าหลัก</a>
+
+<a href="preface.html">คำนำ</a>
+
+<a href="personal.html">ประวัติส่วนตัว</a>
+
+<a href="activities.html">ผลงานและกิจกรรม</a>
+
+<a href="contact.html">ช่องทางการติดต่อ</a>
+
+</div>
+
+</nav>
+
+
+<div class="sun sun1">☀️</div>
+
+<div class="sun sun2">☀️</div>
+
+<div class="cloud cloud1">☁️</div>
+
+<div class="cloud cloud2">☁️</div>
+
+<div class="cloud cloud3">☁️</div>
+
+
+<main class="page">
+
+
+<h1 class="page-title">
+ประวัติส่วนตัว
+</h1>
+
+
+<div class="box">
+
+
+<h2 class="section-title">
+ประวัติส่วนตัว
+</h2>
+
+
+<div class="grid">
+
+
+<div class="item">
+
+<strong>ชื่อ-นามสกุล</strong>
+
+<br>
+
+นางสาวธันยพร หลวงจิตร
+
+</div>
+
+
+<div class="item">
+
+<strong>Name</strong>
+
+<br>
+
+Thanyaporn Luangjit
+
+</div>
+
+
+<div class="item">
+
+<strong>ชื่อเล่น</strong>
+
+<br>
+
+เมล
+
+</div>
+
+
+<div class="item">
+
+<strong>Nickname</strong>
+
+<br>
+
+Mail
+
+</div>
+
+
+<div class="item">
+
+<strong>อายุ</strong>
+
+<br>
+
+17 ปี
+
+</div>
+
+
+<div class="item">
+
+<strong>Age</strong>
+
+<br>
+
+17 years old
+
+</div>
+
+
+<div class="item">
+
+<strong>วันเกิด</strong>
+
+<br>
+
+16 มีนาคม 2552
+
+</div>
+
+
+<div class="item">
+
+<strong>สัญชาติ</strong>
+
+<br>
+
+ไทย
+
+</div>
+
+
+<div class="item">
+
+<strong>เชื้อชาติ</strong>
+
+<br>
+
+ไทย
+
+</div>
+
+
+<div class="item">
+
+<strong>ศาสนา</strong>
+
+<br>
+
+พุทธ
+
+</div>
+
+
+<div class="item">
+
+<strong>ประวัติการศึกษา</strong>
+
+<br>
+
+สถานศึกษา โรงเรียนบ้านบึง
+"อุตสาหกรรมนุเคราะห์"
+
+</div>
+
+
+<div class="item">
+
+<strong>แผนการเรียน</strong>
+
+<br>
+
+Gifted Program
+
+</div>
+
+
+</div>
+
+</div>
+
+</main>
+
+
+</body>
+
+</html>
