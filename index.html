@@ -1,866 +1,813 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Portfolio - Thanyaporn Luangjit</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: "Tahoma", "Arial", sans-serif;
-            color: #000000;
-            background: linear-gradient(
-                135deg,
-                #DCDCDC 0%,
-                #FFF8DC 50%,
-                #DCDCDC 100%
-            );
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* =========================
-           พื้นหลังและอิโมจิลอย
-        ========================= */
-
-        .floating {
-            position: fixed;
-            z-index: 0;
-            pointer-events: none;
-            user-select: none;
-        }
-
-        .sun {
-            font-size: 55px;
-            color: #FFD700;
-            animation: floatSun 7s ease-in-out infinite;
-        }
-
-        .cloud {
-            font-size: 60px;
-            color: #6495ED;
-            filter: drop-shadow(0 4px 5px rgba(0,0,0,0.12));
-            animation: floatCloud 10s ease-in-out infinite;
-        }
-
-        .sun1 {
-            top: 130px;
-            left: 7%;
-        }
-
-        .sun2 {
-            top: 65%;
-            right: 8%;
-            font-size: 45px;
-            animation-delay: 2s;
-        }
-
-        .sun3 {
-            bottom: 8%;
-            left: 18%;
-            font-size: 38px;
-            animation-delay: 4s;
-        }
-
-        .cloud1 {
-            top: 170px;
-            right: 7%;
-        }
-
-        .cloud2 {
-            top: 55%;
-            left: 5%;
-            font-size: 48px;
-            animation-delay: 2s;
-        }
-
-        .cloud3 {
-            bottom: 10%;
-            right: 20%;
-            font-size: 50px;
-            animation-delay: 4s;
-        }
-
-        @keyframes floatSun {
-            0%, 100% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-
-            50% {
-                transform: translate(25px, -25px) rotate(12deg);
-            }
-        }
-
-        @keyframes floatCloud {
-            0%, 100% {
-                transform: translateX(0);
-            }
-
-            50% {
-                transform: translateX(45px) translateY(-15px);
-            }
-        }
-
-        /* =========================
-           เมนูด้านบน
-        ========================= */
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-
-            padding: 18px 15px;
-
-            background: rgba(255, 248, 220, 0.92);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 3px 15px rgba(0,0,0,0.12);
-        }
-
-        .nav-btn {
-            border: none;
-            background: transparent;
-            color: #000000;
-
-            font-size: 16px;
-            font-weight: bold;
-
-            padding: 10px 18px;
-
-            cursor: pointer;
-
-            position: relative;
-
-            transition: 0.3s;
-        }
-
-        /* ก้อนเมฆล้อมรอบเมนู */
-        .nav-btn::before {
-            content: "☁️";
-            position: absolute;
-            font-size: 27px;
-            left: -7px;
-            top: 2px;
-            z-index: -1;
-        }
-
-        .nav-btn::after {
-            content: "☁️";
-            position: absolute;
-            font-size: 27px;
-            right: -7px;
-            bottom: 1px;
-            z-index: -1;
-        }
-
-        .nav-btn:hover {
-            transform: translateY(-4px) scale(1.05);
-        }
-
-        .nav-btn.active {
-            transform: scale(1.08);
-        }
-
-        /* =========================
-           หน้าต่างแต่ละหน้า
-        ========================= */
-
-        .page {
-            display: none;
-
-            position: relative;
-            z-index: 10;
-
-            min-height: 100vh;
-
-            padding: 140px 8% 80px;
-
-            animation: pageFade 0.6s ease;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        @keyframes pageFade {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* =========================
-           หัวข้อ
-        ========================= */
-
-        .page-title {
-            text-align: center;
-
-            font-size: clamp(42px, 7vw, 75px);
-
-            font-weight: 900;
-
-            color: #000000;
-
-            margin-bottom: 55px;
-
-            text-shadow:
-                2px 2px 0px #FFF8DC,
-                4px 4px 8px rgba(0,0,0,0.15);
-        }
-
-        /* =========================
-           หน้า Portfolio
-        ========================= */
-
-        .portfolio-content {
-            max-width: 950px;
-            margin: auto;
-            text-align: center;
-        }
-
-        .profile-image {
-            width: 300px;
-            height: 300px;
-
-            object-fit: cover;
-
-            border-radius: 25px;
-
-            border: 7px solid #FFF8DC;
-
-            box-shadow: 0 8px 25px rgba(0,0,0,0.18);
-
-            margin-bottom: 40px;
-        }
-
-        .image-note {
-            margin-bottom: 30px;
-            font-size: 14px;
-        }
-
-        .info-box {
-            background: rgba(255,255,255,0.55);
-
-            border: 3px solid #000000;
-
-            border-radius: 25px;
-
-            padding: 35px;
-
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-
-            text-align: left;
-        }
-
-        .info-box p {
-            font-size: 18px;
-            line-height: 2;
-            margin-bottom: 5px;
-        }
-
-        .info-box strong {
-            font-size: 21px;
-        }
-
-        /* =========================
-           กล่องเนื้อหา
-        ========================= */
-
-        .content-box {
-            max-width: 950px;
-            margin: auto;
-
-            background: rgba(255,255,255,0.65);
-
-            border: 3px solid #000000;
-
-            border-radius: 28px;
-
-            padding: 45px;
-
-            box-shadow: 0 10px 25px rgba(0,0,0,0.13);
-        }
-
-        .content-box p {
-            font-size: 20px;
-            line-height: 2;
-            text-align: justify;
-        }
-
-        .sub-title {
-            font-size: 32px;
-            margin-bottom: 25px;
-            text-align: center;
-        }
-
-        /* =========================
-           ผลงาน
-        ========================= */
-
-        .works {
-            max-width: 1100px;
-            margin: auto;
-
-            display: grid;
-
-            grid-template-columns: repeat(2, 1fr);
-
-            gap: 30px;
-        }
-
-        .work-card {
-            background: rgba(255,255,255,0.7);
-
-            border: 3px solid #000000;
-
-            border-radius: 25px;
-
-            padding: 25px;
-
-            text-align: center;
-
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-
-            transition: 0.3s;
-        }
-
-        .work-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .work-image {
-            width: 100%;
-            height: 280px;
-
-            object-fit: cover;
-
-            border-radius: 18px;
-
-            border: 2px solid #000000;
-
-            margin-bottom: 20px;
-        }
-
-        .work-placeholder {
-            width: 100%;
-            height: 280px;
-
-            border: 2px dashed #000000;
-
-            border-radius: 18px;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            font-size: 18px;
-
-            margin-bottom: 20px;
-
-            background: rgba(255,248,220,0.6);
-        }
-
-        .work-card p {
-            font-size: 18px;
-            line-height: 1.7;
-        }
-
-        /* =========================
-           ติดต่อ
-        ========================= */
-
-        .contact-box {
-            max-width: 750px;
-            margin: auto;
-
-            background: rgba(255,255,255,0.7);
-
-            border: 3px solid #000000;
-
-            border-radius: 30px;
-
-            padding: 45px;
-
-            box-shadow: 0 10px 25px rgba(0,0,0,0.13);
-        }
-
-        .contact-item {
-            font-size: 24px;
-
-            margin: 25px 0;
-
-            padding: 15px;
-
-            border-bottom: 2px dashed #000000;
-        }
-
-        .contact-item a {
-            color: #000000;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .contact-item a:hover {
-            text-decoration: underline;
-        }
-
-        /* =========================
-           Responsive
-        ========================= */
-
-        @media (max-width: 800px) {
-
-            nav {
-                gap: 5px;
-                padding: 12px 5px;
-                flex-wrap: wrap;
-            }
-
-            .nav-btn {
-                font-size: 13px;
-                padding: 8px 10px;
-            }
-
-            .page {
-                padding: 170px 5% 60px;
-            }
-
-            .works {
-                grid-template-columns: 1fr;
-            }
-
-            .profile-image {
-                width: 240px;
-                height: 240px;
-            }
-
-            .content-box,
-            .info-box,
-            .contact-box {
-                padding: 25px;
-            }
-
-            .info-box p {
-                font-size: 16px;
-            }
-
-            .content-box p {
-                font-size: 17px;
-            }
-
-            .contact-item {
-                font-size: 18px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portfolio | Thanyaporn Luangjit</title>
+
+<style>
+
+/* =========================
+   ตั้งค่าพื้นฐาน
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Trebuchet MS","Tahoma",sans-serif;
+    color:#000000;
+    background:linear-gradient(
+        135deg,
+        #DCDCDC,
+        #FFF8DC,
+        #DCDCDC
+    );
+    overflow-x:hidden;
+}
+
+/* =========================
+   Navigation Bar
+========================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:85px;
+    background:rgba(255,248,220,0.95);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+
+.nav-container{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.nav-btn{
+    position:relative;
+    text-decoration:none;
+    color:#000000;
+    font-size:17px;
+    font-weight:bold;
+    padding:13px 25px;
+    transition:0.3s;
+}
+
+/* เมฆล้อมรอบข้อความ */
+
+.nav-btn::before{
+    content:"☁️";
+    position:absolute;
+    left:3px;
+    top:3px;
+    font-size:28px;
+    color:#6495ED;
+    z-index:-1;
+}
+
+.nav-btn::after{
+    content:"☁️";
+    position:absolute;
+    right:3px;
+    bottom:0px;
+    font-size:28px;
+    color:#6495ED;
+    z-index:-1;
+}
+
+.nav-btn:hover{
+    transform:translateY(-5px) scale(1.05);
+}
+
+/* =========================
+   Floating Sun & Clouds
+========================= */
+
+.decor{
+    position:fixed;
+    pointer-events:none;
+    z-index:0;
+}
+
+.sun{
+    font-size:65px;
+    color:#FFD700;
+    animation:floatSun 7s ease-in-out infinite;
+}
+
+.cloud{
+    font-size:70px;
+    color:#6495ED;
+    animation:floatCloud 9s ease-in-out infinite;
+}
+
+.sun1{
+    top:120px;
+    left:7%;
+}
+
+.sun2{
+    bottom:15%;
+    right:8%;
+    animation-delay:2s;
+}
+
+.cloud1{
+    top:25%;
+    right:5%;
+}
+
+.cloud2{
+    bottom:20%;
+    left:5%;
+    animation-delay:3s;
+}
+
+@keyframes floatSun{
+    0%,100%{
+        transform:translateY(0) rotate(-5deg);
+    }
+
+    50%{
+        transform:translateY(-30px) rotate(5deg);
+    }
+}
+
+@keyframes floatCloud{
+    0%,100%{
+        transform:translateX(0) translateY(0);
+    }
+
+    50%{
+        transform:translateX(35px) translateY(-15px);
+    }
+}
+
+/* =========================
+   ทุกหน้า
+========================= */
+
+.page{
+    min-height:100vh;
+    padding:130px 8% 80px;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    z-index:1;
+}
+
+/* =========================
+   หัวข้อใหญ่
+========================= */
+
+.page-title{
+    font-size:clamp(45px,7vw,85px);
+    text-align:center;
+    color:#000000;
+    margin-bottom:45px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+/* =========================
+   กรอบข้อความ
+========================= */
+
+.content-box{
+    width:min(1000px,95%);
+    background:rgba(255,255,255,0.70);
+    border:3px solid #6495ED;
+    border-radius:30px;
+    padding:40px;
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.15);
+    margin-bottom:30px;
+    line-height:1.9;
+}
+
+.content-box h2{
+    font-size:32px;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+.content-box p{
+    font-size:20px;
+    margin:8px 0;
+}
+
+/* =========================
+   หน้าแรก
+========================= */
+
+.home-title{
+    font-size:clamp(70px,12vw,150px);
+    font-weight:900;
+    text-transform:uppercase;
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.profile-image{
+    width:300px;
+    height:380px;
+    object-fit:cover;
+    border-radius:30px;
+    border:5px solid #FFD700;
+    background:#DCDCDC;
+    box-shadow:0 15px 30px rgba(0,0,0,0.2);
+    margin-bottom:35px;
+}
+
+/* ข้อมูลหน้าแรก */
+
+.home-info{
+    width:min(900px,95%);
+    text-align:center;
+}
+
+.home-info .name{
+    font-size:34px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.home-info .english-name{
+    font-size:24px;
+    margin-bottom:25px;
+}
+
+.info-line{
+    font-size:21px;
+    margin:10px 0;
+}
+
+/* =========================
+   คำนำ
+========================= */
+
+.preface-box{
+    font-size:23px;
+    text-align:justify;
+    line-height:2;
+}
+
+/* =========================
+   ประวัติส่วนตัว
+========================= */
+
+.personal-info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px 35px;
+}
+
+.personal-info p{
+    font-size:19px;
+}
+
+/* =========================
+   ผลงานและกิจกรรม
+========================= */
+
+.activities{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:35px;
+    width:min(1100px,95%);
+}
+
+.activity-card{
+    background:rgba(255,255,255,0.75);
+    border:3px solid #6495ED;
+    border-radius:30px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 12px 30px rgba(0,0,0,0.13);
+}
+
+.activity-card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:20px;
+    border:4px solid #FFD700;
+    background:#DCDCDC;
+    margin-bottom:20px;
+}
+
+.activity-card p{
+    font-size:18px;
+    line-height:1.8;
+}
+
+/* =========================
+   ช่องทางการติดต่อ
+========================= */
+
+.contact-box{
+    width:min(800px,95%);
+}
+
+.contact-item{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    background:rgba(255,255,255,0.7);
+    border-radius:20px;
+    padding:20px;
+    margin:18px 0;
+    border:2px solid #6495ED;
+    font-size:21px;
+    word-break:break-word;
+}
+
+.contact-icon{
+    font-size:35px;
+    min-width:45px;
+}
+
+.contact-item a{
+    color:#000000;
+    text-decoration:none;
+}
+
+.contact-item a:hover{
+    text-decoration:underline;
+}
+
+/* =========================
+   Footer
+========================= */
+
+footer{
+    text-align:center;
+    padding:30px;
+    background:#FFF8DC;
+    font-size:17px;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media(max-width:800px){
+
+    nav{
+        height:auto;
+        padding:12px;
+    }
+
+    .nav-container{
+        gap:5px;
+    }
+
+    .nav-btn{
+        font-size:13px;
+        padding:10px 16px;
+    }
+
+    .page{
+        padding-top:150px;
+    }
+
+    .personal-info{
+        grid-template-columns:1fr;
+    }
+
+    .activities{
+        grid-template-columns:1fr;
+    }
+
+    .content-box{
+        padding:25px;
+    }
+
+    .home-info .name{
+        font-size:25px;
+    }
+
+    .info-line{
+        font-size:18px;
+    }
+
+    .sun{
+        font-size:45px;
+    }
+
+    .cloud{
+        font-size:50px;
+    }
+}
+
+</style>
 </head>
+
 
 <body>
 
-    <!-- =========================
-         อิโมจิพื้นหลัง
-    ========================= -->
+<!-- =========================
+     Navigation
+========================= -->
 
-    <div class="floating sun sun1">☀️</div>
-    <div class="floating sun sun2">☀️</div>
-    <div class="floating sun sun3">☀️</div>
+<nav>
 
-    <div class="floating cloud cloud1">☁️</div>
-    <div class="floating cloud cloud2">☁️</div>
-    <div class="floating cloud cloud3">☁️</div>
+<div class="nav-container">
 
+<a href="#home" class="nav-btn">
+    คำนำ
+</a>
 
-    <!-- =========================
-         เมนูด้านบน
-    ========================= -->
+<a href="#personal" class="nav-btn">
+    ประวัติส่วนตัว
+</a>
 
-    <nav>
+<a href="#activities" class="nav-btn">
+    ผลงานและกิจกรรม
+</a>
 
-        <button class="nav-btn active" onclick="showPage('home', this)">
-            คำนำ
-        </button>
+<a href="#contact" class="nav-btn">
+    ช่องทางการติดต่อ
+</a>
 
-        <button class="nav-btn" onclick="showPage('profile', this)">
-            ประวัติส่วนตัว
-        </button>
+</div>
 
-        <button class="nav-btn" onclick="showPage('works', this)">
-            ผลงานและกิจกรรม
-        </button>
+</nav>
 
-        <button class="nav-btn" onclick="showPage('contact', this)">
-            ช่องทางการติดต่อ
-        </button>
 
-    </nav>
+<!-- =========================
+     ของตกแต่งลอย
+========================= -->
 
+<div class="decor sun sun1">☀️</div>
+<div class="decor sun sun2">☀️</div>
 
-    <!-- =========================
-         หน้าแรก
-    ========================= -->
+<div class="decor cloud cloud1">☁️</div>
+<div class="decor cloud cloud2">☁️</div>
 
-    <section id="home" class="page active">
 
-        <h1 class="page-title">
-            PORTFOLIO
-        </h1>
+<!-- =========================
+     หน้าแรก
+========================= -->
 
-        <div class="portfolio-content">
+<section class="page" id="home">
 
-            <!-- ใส่รูปภาพตรงนี้ -->
-            <img
-                src=IMG_1028.jpeg
-                alt="รูปภาพของธันยพร"
-                class="profile-image"
-            >
+<h1 class="home-title">
+    PORTFOLIO
+</h1>
 
-            <p class="image-note">
-                <!-- เปลี่ยน images/profile.jpg เป็นชื่อไฟล์รูปของคุณ -->
-            </p>
 
-            <div class="info-box">
+<!-- ใส่รูปหน้าจอคอมพิวเตอร์ตรงนี้ -->
 
-                <p>
-                    <strong>ชื่อ-นามสกุล</strong>
-                    นางสาวธันยพร หลวงจิตร
-                </p>
+<img 
+    src="images/profile.jpg"
+    alt="รูปภาพของธันยพร"
+    class="profile-image"
+>
 
-                <p>
-                    <strong>Name</strong>
-                    Thanyaporn Luangjit
-                </p>
 
-                <p>
-                    <strong>ชื่อเล่น</strong>
-                    เมล
-                </p>
+<div class="home-info">
 
-                <p>
-                    <strong>Nickname</strong>
-                    Mail
-                </p>
+<div class="name">
+    นางสาวธันยพร หลวงจิตร
+</div>
 
-                <p>
-                    <strong>ระดับชั้น</strong>
-                    มัธยมศึกษาชั้นปีที่ 6/2
-                </p>
+<div class="english-name">
+    Thanyaporn Luangjit
+</div>
 
-                <p>
-                    <strong>แผนการเรียน</strong>
-                    Gifted Program
-                </p>
+<div class="info-line">
+    <strong>ชื่อเล่น</strong> เมล
+</div>
 
-                <p>
-                    <strong>โรงเรียนที่กำลังศึกษาอยู่</strong>
-                    โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"
-                </p>
+<div class="info-line">
+    <strong>Nickname</strong> Mail
+</div>
 
-                <p>
-                    <strong>คณะ-สาขาและมหาวิทยาลัยที่สนใจศึกษาต่อ</strong>
-                    คณะพยาบาลศาสตร์ หลักสูตรพยาบาลศาสตรบัณฑิต (พย.บ.)
-                    มหาวิทยาลัยบูรพา
-                </p>
+<div class="info-line">
+    <strong>ระดับชั้น</strong> มัธยมศึกษาชั้นปีที่ 6/2
+</div>
 
-            </div>
+<div class="info-line">
+    <strong>แผนการเรียน</strong> Gifted Program
+</div>
 
-        </div>
+<div class="info-line">
+    <strong>โรงเรียนที่กำลังศึกษาอยู่</strong><br>
+    โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"
+</div>
 
-    </section>
+<div class="info-line">
+    <strong>คณะ-สาขาและมหาวิทยาลัยที่สนใจศึกษาต่อ</strong><br>
+    คณะพยาบาลศาสตร์ หลักสูตรพยาบาลศาสตรบัณฑิต (พย.บ.)<br>
+    มหาวิทยาลัยบูรพา
+</div>
 
+</div>
 
-    <!-- =========================
-         หน้าคำนำ
-    ========================= -->
+</section>
 
-    <section id="preface" class="page">
 
-        <h1 class="page-title">
-            คำนำ
-        </h1>
+<!-- =========================
+     คำนำ
+========================= -->
 
-        <div class="content-box">
+<section class="page" id="preface">
 
-            <p>
-                แฟ้มสะสมผลงาน (Portfolio) เล่มนี้ จัดทำขึ้นเพื่อเป็นตัวแทน
-                ในการนำเสนอข้อมูลเกี่ยวกับประวัติส่วนตัว ความรู้ ความสามารถ
-                ทักษะ และกิจกรรมต่างๆ ของข้าพเจ้า โดยเฉพาะความสนใจและ
-                ความมุ่งมั่นที่มีต่อการศึกษาต่อ ภายในแฟ้มสะสมผลงานเล่มนี้
-                ประกอบด้วยประวัติส่วนตัว ผลการเรียน กิจกรรมที่ข้าพเจ้าได้เข้าร่วม
-            </p>
+<h1 class="page-title">
+    คำนำ
+</h1>
 
-        </div>
+<div class="content-box preface-box">
 
-    </section>
+แฟ้มสะสมผลงาน (Portfolio) เล่มนี้ จัดทำขึ้นเพื่อเป็นตัวแทนในการนำเสนอข้อมูลเกี่ยวกับประวัติส่วนตัว ความรู้ ความสามารถ ทักษะ และกิจกรรมต่างๆ ของข้าพเจ้า โดยเฉพาะความสนใจและความมุ่งมั่นที่มีต่อการศึกษาต่อ ภายในแฟ้มสะสมผลงานเล่มนี้ ประกอบด้วยประวัติส่วนตัว ผลการเรียน กิจกรรมที่ข้าพเจ้าได้เข้าร่วม
 
+</div>
 
-    <!-- =========================
-         หน้าประวัติส่วนตัว
-    ========================= -->
+</section>
 
-    <section id="profile" class="page">
 
-        <h1 class="page-title">
-            ประวัติส่วนตัว
-        </h1>
+<!-- =========================
+     ประวัติส่วนตัว
+========================= -->
 
-        <div class="content-box">
+<section class="page" id="personal">
 
-            <h2 class="sub-title">
-                ประวัติส่วนตัว
-            </h2>
+<h1 class="page-title">
+    ประวัติส่วนตัว
+</h1>
 
-            <p>
-                <strong>ชื่อ-นามสกุล</strong>
-                นางสาวธันยพร หลวงจิตร
-            </p>
 
-            <p>
-                <strong>Name</strong>
-                Thanyaporn Luangjit
-            </p>
+<div class="content-box">
 
-            <p>
-                <strong>ชื่อเล่น</strong>
-                เมล
-            </p>
+<h2>
+    ประวัติส่วนตัว
+</h2>
 
-            <p>
-                <strong>Nickname</strong>
-                Mail
-            </p>
+<div class="personal-info">
 
-            <p>
-                <strong>อายุ</strong>
-                17 ปี
-            </p>
+<p>
+<strong>ชื่อ-นามสกุล</strong><br>
+นางสาวธันยพร หลวงจิตร
+</p>
 
-            <p>
-                <strong>Age</strong>
-                17 years old
-            </p>
+<p>
+<strong>Name</strong><br>
+Thanyaporn Luangjit
+</p>
 
-            <p>
-                <strong>วันเกิด</strong>
-                16 มีนาคม 2552
-            </p>
+<p>
+<strong>ชื่อเล่น</strong><br>
+เมล
+</p>
 
-            <p>
-                <strong>สัญชาติ</strong>
-                ไทย
-            </p>
+<p>
+<strong>Nickname</strong><br>
+Mail
+</p>
 
-            <p>
-                <strong>เชื้อชาติ</strong>
-                ไทย
-            </p>
+<p>
+<strong>อายุ</strong><br>
+17 ปี
+</p>
 
-            <p>
-                <strong>ศาสนา</strong>
-                พุทธ
-            </p>
+<p>
+<strong>Age</strong><br>
+17 years old
+</p>
 
-            <br>
+<p>
+<strong>วันเกิด</strong><br>
+16 มีนาคม 2552
+</p>
 
-            <h2 class="sub-title">
-                ประวัติการศึกษา
-            </h2>
+<p>
+<strong>สัญชาติ</strong><br>
+ไทย
+</p>
 
-            <p>
-                <strong>สถานศึกษา</strong>
-                โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"
-            </p>
+<p>
+<strong>เชื้อชาติ</strong><br>
+ไทย
+</p>
 
-            <p>
-                <strong>แผนการเรียน</strong>
-                Gifted Program
-            </p>
+<p>
+<strong>ศาสนา</strong><br>
+พุทธ
+</p>
 
-        </div>
+<p>
+<strong>ประวัติการศึกษา</strong><br>
+สถานศึกษา โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"
+</p>
 
-    </section>
+<p>
+<strong>แผนการเรียน</strong><br>
+Gifted Program
+</p>
 
+</div>
 
-    <!-- =========================
-         หน้าผลงานและกิจกรรม
-    ========================= -->
+</div>
 
-    <section id="works" class="page">
+</section>
 
-        <h1 class="page-title">
-            ผลงานและกิจกรรม
-        </h1>
 
-        <div class="works">
+<!-- =========================
+     ผลงานและกิจกรรม
+========================= -->
 
-            <!-- รูปที่ 1 -->
-            <div class="work-card">
+<section class="page" id="activities">
 
-                <img
-                    src="images/work1.jpg"
-                    alt="ผลงานที่ 1"
-                    class=IMG_1030.jpeg 
-                >
+<h1 class="page-title">
+    ผลงานและกิจกรรม
+</h1>
 
-                <p>
-                    เนื้อหาต่อจากรูปภาพ คือ
-                </p>
 
-            </div>
+<div class="activities">
 
 
-            <!-- รูปที่ 2 -->
-            <div class="work-card">
+<!-- กิจกรรมที่ 1 -->
 
-                <img
-                    src="images/work2.jpg"
-                    alt="ผลงานที่ 2"
-                    class="work-image"
-                >
+<div class="activity-card">
 
-                <p>
-                    เนื้อหาต่อจากรูปภาพ คือ
-                </p>
+<img 
+    src="images/activity1-1.jpg"
+    alt="กิจกรรมฝึกประสบการณ์คลินิกทันตกรรม"
+>
 
-            </div>
+<img 
+    src="images/activity1-2.jpg"
+    alt="กิจกรรมฝึกประสบการณ์คลินิกทันตกรรม"
+>
 
+<p>
+ได้ไปฝึกประสบการณ์ที่คลินิกทันตกรรมเอสซี
+ซึ่งได้เรียนรู้ในการเอกซเรย์ฟัน การพิมพ์ฟัน
+และการตรวจสุขภาพช่องปาก
+</p>
 
-            <!-- รูปที่ 3 -->
-            <div class="work-card">
+</div>
 
-                <img
-                    src="images/work3.jpg"
-                    alt="ผลงานที่ 3"
-                    class="work-image"
-                >
 
-                <p>
-                    เนื้อหาต่อจากรูปภาพ คือ
-                </p>
+<!-- กิจกรรมที่ 2 -->
 
-            </div>
+<div class="activity-card">
 
+<img 
+    src="images/activity2.jpg"
+    alt="ผลงานและกิจกรรมที่ 2"
+>
 
-            <!-- รูปที่ 4 -->
-            <div class="work-card">
+<p>
+ใส่รายละเอียดผลงานหรือกิจกรรมที่ 2
+ตรงบริเวณนี้
+</p>
 
-                <img
-                    src="images/work4.jpg"
-                    alt="ผลงานที่ 4"
-                    class="work-image"
-                >
+</div>
 
-                <p>
-                    เนื้อหาต่อจากรูปภาพ คือ
-                </p>
 
-            </div>
+<!-- กิจกรรมที่ 3 -->
 
-        </div>
+<div class="activity-card">
 
-    </section>
+<img 
+    src="images/activity3.jpg"
+    alt="ผลงานและกิจกรรมที่ 3"
+>
 
+<p>
+ใส่รายละเอียดผลงานหรือกิจกรรมที่ 3
+ตรงบริเวณนี้
+</p>
 
-    <!-- =========================
-         หน้าช่องทางการติดต่อ
-    ========================= -->
+</div>
 
-    <section id="contact" class="page">
 
-        <h1 class="page-title">
-            ช่องทางการติดต่อ
-        </h1>
+<!-- กิจกรรมที่ 4 -->
 
-        <div class="contact-box">
+<div class="activity-card">
 
-            <div class="contact-item">
-                📧 Gmail :
-                <a href="mailto:mail.luangjit@gmail.com">
-                    mail.luangjit@gmail.com
-                </a>
-            </div>
+<img 
+    src="images/activity4.jpg"
+    alt="ผลงานและกิจกรรมที่ 4"
+>
 
-            <div class="contact-item">
-                📞 Tel :
-                <a href="tel:0924301659">
-                    092-4301659
-                </a>
-            </div>
+<p>
+ใส่รายละเอียดผลงานหรือกิจกรรมที่ 4
+ตรงบริเวณนี้
+</p>
 
-            <div class="contact-item">
-                📷 IG :
-                <a
-                    href=https://www.instagram.com/mxi_316
-                    target="_blank"
-                >
-                    mxi_316
-                </a>
-            </div>
+</div>
 
-        </div>
 
-    </section>
+</div>
 
+</section>
 
-    <!-- =========================
-         JavaScript เปลี่ยนหน้า
-    ========================= -->
 
-    <script>
+<!-- =========================
+     ช่องทางการติดต่อ
+========================= -->
 
-        function showPage(pageId, button) {
+<section class="page" id="contact">
 
-            // ซ่อนทุกหน้า
-            const pages = document.querySelectorAll(".page");
+<h1 class="page-title">
+    ช่องทางการติดต่อ
+</h1>
 
-            pages.forEach(function(page) {
-                page.classList.remove("active");
-            });
 
+<div class="content-box contact-box">
 
-            // แสดงหน้าที่เลือก
-            document.getElementById(pageId).classList.add("active");
 
+<div class="contact-item">
 
-            // เอาสถานะ active ออกจากปุ่มทั้งหมด
-            const buttons = document.querySelectorAll(".nav-btn");
+<div class="contact-icon">
+    📧
+</div>
 
-            buttons.forEach(function(btn) {
-                btn.classList.remove("active");
-            });
+<div>
 
+<strong>Gmail</strong><br>
 
-            // ทำให้ปุ่มที่เลือกเป็น active
-            button.classList.add("active");
+<a href="mailto:mail.luangjit@gmail.com">
+    mail.luangjit@gmail.com
+</a>
 
+</div>
 
-            // เลื่อนกลับขึ้นด้านบน
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        }
+</div>
 
-    </script>
+
+<div class="contact-item">
+
+<div class="contact-icon">
+    📞
+</div>
+
+<div>
+
+<strong>Tel</strong><br>
+
+092-4301659
+
+</div>
+
+</div>
+
+
+<div class="contact-item">
+
+<div class="contact-icon">
+    📷
+</div>
+
+<div>
+
+<strong>IG</strong><br>
+
+<a 
+    href="https://www.instagram.com/mxi_316/"
+    target="_blank"
+>
+    @mxi_316
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 Thanyaporn Luangjit | Portfolio
+
+</footer>
+
 
 </body>
 </html>
