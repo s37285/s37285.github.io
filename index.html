@@ -3,16 +3,401 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-    <title>
-        ประวัติส่วนตัว | Portfolio
-    </title>
+<title>Portfolio | Thanyaporn Luangjit</title>
 
-    <link rel="stylesheet" href="style.css">
+<style>
+
+/* =========================
+   พื้นฐาน
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Trebuchet MS","Tahoma",sans-serif;
+    color:#000000;
+    min-height:100vh;
+    overflow-x:hidden;
+
+    background:
+    radial-gradient(circle at 15% 20%,#FFF8DC 0%,transparent 30%),
+    radial-gradient(circle at 85% 80%,#DCDCDC 0%,transparent 35%),
+    linear-gradient(135deg,#DCDCDC,#FFF8DC,#DCDCDC);
+}
+
+
+/* =========================
+   เมนูด้านบน
+========================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+
+    background:rgba(255,248,220,0.96);
+
+    border-bottom:3px solid #FFD700;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+
+    padding:16px 20px;
+}
+
+.menu{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:22px;
+}
+
+.menu a{
+    position:relative;
+
+    color:#000000;
+    text-decoration:none;
+
+    font-size:17px;
+    font-weight:bold;
+
+    padding:12px 22px;
+
+    transition:0.3s;
+}
+
+/* เมฆซ้าย */
+
+.menu a::before{
+    content:"☁️";
+
+    position:absolute;
+
+    left:-8px;
+    top:-5px;
+
+    font-size:25px;
+}
+
+/* เมฆขวา */
+
+.menu a::after{
+    content:"☁️";
+
+    position:absolute;
+
+    right:-8px;
+    bottom:-7px;
+
+    font-size:25px;
+}
+
+.menu a:hover{
+    color:#6495ED;
+    transform:translateY(-4px);
+}
+
+
+/* =========================
+   พระอาทิตย์
+========================= */
+
+.sun{
+    position:fixed;
+    font-size:55px;
+    z-index:1;
+    pointer-events:none;
+
+    animation:sunMove 6s ease-in-out infinite;
+}
+
+.sun1{
+    top:120px;
+    left:5%;
+}
+
+.sun2{
+    bottom:8%;
+    right:7%;
+    animation-delay:2s;
+}
+
+@keyframes sunMove{
+
+    0%,100%{
+        transform:translateY(0) rotate(0deg);
+    }
+
+    50%{
+        transform:translateY(-25px) rotate(10deg);
+    }
+}
+
+
+/* =========================
+   เมฆลอย
+========================= */
+
+.cloud{
+    position:fixed;
+    font-size:60px;
+    z-index:1;
+    pointer-events:none;
+
+    animation:cloudMove 8s ease-in-out infinite;
+}
+
+.cloud1{
+    top:28%;
+    right:5%;
+}
+
+.cloud2{
+    bottom:18%;
+    left:6%;
+    animation-delay:2s;
+}
+
+.cloud3{
+    top:55%;
+    right:15%;
+    font-size:45px;
+    animation-delay:4s;
+}
+
+@keyframes cloudMove{
+
+    0%,100%{
+        transform:translateX(0);
+    }
+
+    50%{
+        transform:translateX(35px) translateY(-15px);
+    }
+}
+
+
+/* =========================
+   หน้าแรก
+========================= */
+
+.home{
+    min-height:100vh;
+
+    padding:145px 25px 60px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
+    z-index:2;
+}
+
+
+/* =========================
+   หัวข้อ
+========================= */
+
+.title{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.title-small{
+    font-size:22px;
+    letter-spacing:6px;
+    font-weight:bold;
+}
+
+h1{
+    font-size:clamp(55px,9vw,105px);
+    letter-spacing:7px;
+    font-weight:900;
+}
+
+.gold-line{
+    width:130px;
+    height:6px;
+
+    background:#FFD700;
+
+    border-radius:20px;
+
+    margin:15px auto;
+}
+
+.name-en{
+    font-size:18px;
+    letter-spacing:5px;
+}
+
+
+/* =========================
+   รูปโปรไฟล์
+========================= */
+
+.profile{
+    width:240px;
+    height:300px;
+
+    padding:8px;
+
+    background:#FFF8DC;
+
+    border:5px solid #FFD700;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.2);
+
+    margin-bottom:28px;
+}
+
+.profile img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    display:block;
+}
+
+
+/* =========================
+   ข้อมูล
+========================= */
+
+.info-box{
+    width:min(900px,95%);
+
+    background:rgba(255,255,255,0.82);
+
+    border:3px solid #6495ED;
+
+    border-radius:30px;
+
+    padding:30px 40px;
+
+    text-align:center;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.15);
+
+    position:relative;
+}
+
+.info-box::before{
+    content:"";
+
+    position:absolute;
+
+    inset:9px;
+
+    border:2px solid rgba(255,215,0,0.6);
+
+    border-radius:22px;
+
+    pointer-events:none;
+}
+
+.info-box h2{
+    position:relative;
+
+    font-size:30px;
+
+    margin-bottom:5px;
+}
+
+.info-box p{
+    position:relative;
+
+    font-size:18px;
+
+    line-height:1.8;
+}
+
+.info-box .university{
+    margin-top:15px;
+
+    padding-top:15px;
+
+    border-top:2px solid rgba(100,149,237,0.35);
+}
+
+.info-box strong{
+    font-size:20px;
+}
+
+
+/* =========================
+   มือถือ
+========================= */
+
+@media(max-width:700px){
+
+    .menu{
+        gap:4px;
+    }
+
+    .menu a{
+        font-size:12px;
+        padding:8px 13px;
+    }
+
+    .home{
+        padding-top:145px;
+    }
+
+    h1{
+        font-size:55px;
+        letter-spacing:3px;
+    }
+
+    .title-small{
+        font-size:17px;
+    }
+
+    .name-en{
+        font-size:12px;
+        letter-spacing:3px;
+    }
+
+    .profile{
+        width:200px;
+        height:255px;
+    }
+
+    .info-box{
+        padding:28px 18px;
+    }
+
+    .info-box h2{
+        font-size:23px;
+    }
+
+    .info-box p{
+        font-size:15px;
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -20,240 +405,138 @@
 <body>
 
 
-<!-- MENU -->
+<!-- เมนู -->
 
 <nav>
 
-    <div class="nav-menu">
+<div class="menu">
 
-        <a href="index.html">
-            หน้าหลัก
-        </a>
+<a href="index.html">หน้าหลัก</a>
 
-        <a href="preface.html">
-            คำนำ
-        </a>
+<a href="preface.html">คำนำ</a>
 
-        <a href="personal.html">
-            ประวัติส่วนตัว
-        </a>
+<a href="personal.html">ประวัติส่วนตัว</a>
 
-        <a href="activities.html">
-            ผลงานและกิจกรรม
-        </a>
+<a href="activities.html">ผลงานและกิจกรรม</a>
 
-        <a href="contact.html">
-            ช่องทางการติดต่อ
-        </a>
+<a href="contact.html">ช่องทางการติดต่อ</a>
 
-    </div>
+</div>
 
 </nav>
 
 
-<!-- ของตกแต่ง -->
+<!-- พระอาทิตย์ -->
 
-<div class="floating-sun sun-1">☀️</div>
+<div class="sun sun1">☀️</div>
 
-<div class="floating-sun sun-2">☀️</div>
+<div class="sun sun2">☀️</div>
 
-<div class="floating-cloud cloud-1">☁️</div>
 
-<div class="floating-cloud cloud-2">☁️</div>
+<!-- เมฆ -->
 
-<div class="floating-cloud cloud-3">☁️</div>
+<div class="cloud cloud1">☁️</div>
 
+<div class="cloud cloud2">☁️</div>
 
-<!-- ประวัติส่วนตัว -->
+<div class="cloud cloud3">☁️</div>
 
-<main class="page">
 
+<!-- หน้าแรก -->
 
-    <h1 class="page-title">
-        ประวัติส่วนตัว
-    </h1>
+<main class="home">
 
 
-    <div class="content-box">
+<div class="title">
 
+<div class="title-small">
+MY
+</div>
 
-        <h2 class="section-title">
-            ประวัติส่วนตัว
-        </h2>
+<h1>
+PORTFOLIO
+</h1>
 
+<div class="gold-line"></div>
 
-        <div class="personal-grid">
+<div class="name-en">
+THANYAPORN LUANGJIT
+</div>
 
+</div>
 
-            <div class="personal-item">
 
-                <strong>
-                    ชื่อ-นามสกุล
-                </strong>
+<!-- รูป -->
 
-                <br>
+<div class="profile">
 
-                นางสาวธันยพร หลวงจิตร
+<img src="IMG_1028.jpeg"
+alt="Thanyaporn Luangjit">
 
-            </div>
+</div>
 
 
-            <div class="personal-item">
+<!-- ข้อมูล -->
 
-                <strong>
-                    Name
-                </strong>
+<div class="info-box">
 
-                <br>
+<h2>
+นางสาวธันยพร หลวงจิตร
+</h2>
 
-                Thanyaporn Luangjit
+<p>
+Thanyaporn Luangjit
+</p>
 
-            </div>
+<br>
 
+<p>
+<strong>ชื่อเล่น</strong> เมล
+</p>
 
-            <div class="personal-item">
+<p>
+<strong>Nickname</strong> Mail
+</p>
 
-                <strong>
-                    ชื่อเล่น
-                </strong>
+<p>
+<strong>ระดับชั้น</strong>
+มัธยมศึกษาชั้นปีที่ 6/2
+</p>
 
-                <br>
+<p>
+<strong>แผนการเรียน</strong>
+Gifted Program
+</p>
 
-                เมล
+<p>
+<strong>โรงเรียน</strong>
+โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"
+</p>
 
-            </div>
+<div class="university">
 
+<p>
+<strong>คณะ-สาขาและมหาวิทยาลัยที่สนใจศึกษาต่อ</strong>
+</p>
 
-            <div class="personal-item">
+<p>
+คณะพยาบาลศาสตร์
+</p>
 
-                <strong>
-                    Nickname
-                </strong>
+<p>
+หลักสูตรพยาบาลศาสตรบัณฑิต (พย.บ.)
+</p>
 
-                <br>
+<p>
+<strong>มหาวิทยาลัยบูรพา</strong>
+</p>
 
-                Mail
+</div>
 
-            </div>
+</div>
 
-
-            <div class="personal-item">
-
-                <strong>
-                    อายุ
-                </strong>
-
-                <br>
-
-                17 ปี
-
-            </div>
-
-
-            <div class="personal-item">
-
-                <strong>
-                    Age
-                </strong>
-
-                <br>
-
-                17 years old
-
-            </div>
-
-
-            <div class="personal-item">
-
-                <strong>
-                    วันเกิด
-                </strong>
-
-                <br>
-
-                16 มีนาคม 2552
-
-            </div>
-
-
-            <div class="personal-item">
-
-                <strong>
-                    สัญชาติ
-                </strong>
-
-                <br>
-
-                ไทย
-
-            </div>
-
-
-            <div class="personal-item">
-
-                <strong>
-                    เชื้อชาติ
-                </strong>
-
-                <br>
-
-                ไทย
-
-            </div>
-
-
-            <div class="personal-item">
-
-                <strong>
-                    ศาสนา
-                </strong>
-
-                <br>
-
-                พุทธ
-
-            </div>
-
-
-            <div class="personal-item">
-
-                <strong>
-                    ประวัติการศึกษา
-                </strong>
-
-                <br>
-
-                โรงเรียนบ้านบึง
-                "อุตสาหกรรมนุเคราะห์"
-
-            </div>
-
-
-            <div class="personal-item">
-
-                <strong>
-                    แผนการเรียน
-                </strong>
-
-                <br>
-
-                Gifted Program
-
-            </div>
-
-
-        </div>
-
-    </div>
 
 </main>
-
-
-<footer>
-
-    © 2026 Thanyaporn Luangjit
-
-</footer>
 
 
 </body>
