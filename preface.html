@@ -5,12 +5,15 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>คำนำ | Portfolio</title>
 
 <style>
+
+/* =========================
+   พื้นฐาน
+========================= */
 
 *{
     margin:0;
@@ -18,10 +21,16 @@ content="width=device-width, initial-scale=1.0">
     box-sizing:border-box;
 }
 
+html,body{
+    width:100%;
+    min-height:100%;
+}
+
 body{
     font-family:"Trebuchet MS","Tahoma",sans-serif;
     color:#000000;
     min-height:100vh;
+    overflow-x:hidden;
 
     background:
     radial-gradient(circle at 10% 20%,#FFF8DC,transparent 30%),
@@ -30,7 +39,9 @@ body{
 }
 
 
-/* เมนู */
+/* =========================
+   เมนูด้านบน
+========================= */
 
 nav{
     position:fixed;
@@ -39,64 +50,92 @@ nav{
     width:100%;
     z-index:1000;
 
-    padding:16px 20px;
+    padding:14px 20px;
 
     background:rgba(255,248,220,0.96);
 
     border-bottom:3px solid #FFD700;
 
-    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+    box-shadow:
+    0 5px 20px rgba(0,0,0,0.15);
 }
 
 .menu{
     display:flex;
     justify-content:center;
+    align-items:center;
     flex-wrap:wrap;
-    gap:20px;
+    gap:12px;
 }
 
-.menu a{
-    position:relative;
+.menu button{
 
     color:#000000;
-    text-decoration:none;
+
+    font-family:"Trebuchet MS","Tahoma",sans-serif;
 
     font-weight:bold;
+
     font-size:16px;
 
-    padding:12px 20px;
+    padding:11px 20px;
 
-    transition:0.3s;
+    background:#FFFDF2;
+
+    border:2px solid #FFD700;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 5px 12px rgba(0,0,0,0.12);
+
+    transition:0.3s ease;
 }
 
-.menu a::before{
-    content:"☁️";
-    position:absolute;
-    left:-8px;
-    top:-6px;
-    font-size:24px;
-}
+.menu button:hover{
 
-.menu a::after{
-    content:"☁️";
-    position:absolute;
-    right:-8px;
-    bottom:-7px;
-    font-size:24px;
-}
+    background:#FFD700;
 
-.menu a:hover{
-    color:#6495ED;
     transform:translateY(-4px);
+
+    box-shadow:
+    0 9px 18px rgba(0,0,0,0.20);
+}
+
+.menu button.active{
+
+    background:#FFD700;
+
+    color:#000000;
+
+    box-shadow:
+    0 7px 16px rgba(0,0,0,0.20);
+}
+
+.menu button:active{
+
+    transform:scale(0.96);
 }
 
 
-/* ของตกแต่ง */
+/* =========================
+   ของตกแต่ง
+========================= */
 
 .sun{
+
     position:fixed;
+
     font-size:55px;
-    animation:float 6s ease-in-out infinite;
+
+    pointer-events:none;
+
+    z-index:1;
+
+    animation:
+    float 6s ease-in-out infinite;
 }
 
 .sun1{
@@ -105,34 +144,51 @@ nav{
 }
 
 .sun2{
+
     bottom:10%;
     right:7%;
+
     animation-delay:2s;
 }
 
 .cloud{
+
     position:fixed;
+
     font-size:60px;
-    animation:cloud 8s ease-in-out infinite;
+
+    pointer-events:none;
+
+    z-index:1;
+
+    animation:
+    cloud 8s ease-in-out infinite;
 }
 
 .cloud1{
+
     top:30%;
     right:6%;
 }
 
 .cloud2{
+
     bottom:18%;
     left:6%;
+
     animation-delay:2s;
 }
 
 .cloud3{
+
     top:55%;
     right:15%;
+
     font-size:45px;
+
     animation-delay:4s;
 }
+
 
 @keyframes float{
 
@@ -143,8 +199,8 @@ nav{
     50%{
         transform:translateY(-25px);
     }
-
 }
+
 
 @keyframes cloud{
 
@@ -153,47 +209,85 @@ nav{
     }
 
     50%{
-        transform:translateX(30px) translateY(-15px);
+        transform:
+        translateX(30px)
+        translateY(-15px);
     }
-
 }
 
 
-/* หน้า */
+/* =========================
+   หน้าคำนำ
+========================= */
 
 .page{
+
     min-height:100vh;
 
-    padding:150px 25px 70px;
+    padding:
+    150px 25px 70px;
 
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
 
     position:relative;
+
     z-index:2;
+
+    animation:
+    pageShow 0.4s ease;
 }
 
 
-/* หัวข้อ */
+@keyframes pageShow{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(15px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+    }
+}
+
+
+/* =========================
+   หัวข้อคำนำ
+========================= */
 
 .page h1{
-    font-size:clamp(55px,8vw,90px);
+
+    font-size:
+    clamp(55px,8vw,90px);
 
     letter-spacing:5px;
 
-    margin-bottom:40px;
+    margin-bottom:25px;
 
     text-align:center;
 }
 
 .page h1::after{
+
     content:"";
 
     display:block;
 
     width:120px;
+
     height:6px;
 
     background:#FFD700;
@@ -204,12 +298,55 @@ nav{
 }
 
 
-/* กรอบ */
+/* =========================
+   รูปใต้คำว่าคำนำ
+========================= */
+
+.preface-image{
+
+    width:400px;
+
+    height:270px;
+
+    object-fit:cover;
+
+    border:5px solid #FFD700;
+
+    border-radius:25px;
+
+    padding:5px;
+
+    background:#FFF8DC;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.18);
+
+    margin-bottom:35px;
+
+    transition:0.3s ease;
+}
+
+.preface-image:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.03);
+
+    box-shadow:
+    0 15px 30px rgba(0,0,0,0.22);
+}
+
+
+/* =========================
+   กรอบข้อความ
+========================= */
 
 .box{
+
     width:min(950px,95%);
 
-    background:rgba(255,255,255,0.82);
+    background:
+    rgba(255,255,255,0.82);
 
     border:3px solid #6495ED;
 
@@ -224,18 +361,24 @@ nav{
 }
 
 .box::before{
+
     content:"";
 
     position:absolute;
 
     inset:10px;
 
-    border:2px solid rgba(255,215,0,0.6);
+    border:
+    2px solid
+    rgba(255,215,0,0.6);
 
     border-radius:26px;
+
+    pointer-events:none;
 }
 
 .box p{
+
     position:relative;
 
     font-size:23px;
@@ -246,28 +389,76 @@ nav{
 }
 
 
+/* =========================
+   มือถือ
+========================= */
+
 @media(max-width:700px){
 
-    .menu{
-        gap:3px;
+    nav{
+
+        padding:
+        10px 8px;
     }
 
-    .menu a{
+    .menu{
+
+        gap:6px;
+    }
+
+    .menu button{
+
         font-size:11px;
-        padding:8px 12px;
+
+        padding:
+        8px 11px;
+
+        border-radius:13px;
     }
 
     .page{
-        padding-top:145px;
+
+        padding:
+        145px 15px 50px;
+    }
+
+    .page h1{
+
+        font-size:45px;
+
+        margin-bottom:20px;
+    }
+
+    .preface-image{
+
+        width:90%;
+
+        max-width:350px;
+
+        height:auto;
+
+        aspect-ratio:4/3;
+
+        margin-bottom:30px;
     }
 
     .box{
-        padding:35px 25px;
+
+        padding:
+        35px 25px;
     }
 
     .box p{
+
         font-size:17px;
+
         line-height:1.9;
+    }
+
+    .sun,
+    .cloud{
+
+        font-size:40px;
     }
 
 }
@@ -280,42 +471,87 @@ nav{
 <body>
 
 
+<!-- =========================
+     เมนู
+========================= -->
+
 <nav>
 
 <div class="menu">
 
-<a href="index.html">หน้าหลัก</a>
+<button>
+หน้าหลัก
+</button>
 
-<a href="preface.html">คำนำ</a>
+<button class="active">
+คำนำ
+</button>
 
-<a href="personal.html">ประวัติส่วนตัว</a>
+<button>
+ประวัติส่วนตัว
+</button>
 
-<a href="activities.html">ผลงานและกิจกรรม</a>
+<button>
+ผลงานและกิจกรรม
+</button>
 
-<a href="contact.html">ช่องทางการติดต่อ</a>
+<button>
+ช่องทางการติดต่อ
+</button>
 
 </div>
 
 </nav>
 
 
-<div class="sun sun1">☀️</div>
+<!-- =========================
+     ของตกแต่ง
+========================= -->
 
-<div class="sun sun2">☀️</div>
+<div class="sun sun1">
+☀️
+</div>
 
-<div class="cloud cloud1">☁️</div>
+<div class="sun sun2">
+☀️
+</div>
 
-<div class="cloud cloud2">☁️</div>
+<div class="cloud cloud1">
+☁️
+</div>
 
-<div class="cloud cloud3">☁️</div>
+<div class="cloud cloud2">
+☁️
+</div>
 
+<div class="cloud cloud3">
+☁️
+</div>
+
+
+<!-- =========================
+     หน้าคำนำ
+========================= -->
 
 <main class="page">
+
 
 <h1>
 คำนำ
 </h1>
 
+
+<!-- รูปภาพใต้หัวข้อคำนำ -->
+
+<img
+src="preface.jpg"
+alt="รูปประกอบคำนำ"
+class="preface-image">
+
+
+<!-- =========================
+     เนื้อหาคำนำ
+========================= -->
 
 <div class="box">
 
@@ -327,7 +563,8 @@ nav{
 และกิจกรรมต่างๆ ของข้าพเจ้า
 โดยเฉพาะความสนใจและความมุ่งมั่นที่มีต่อการศึกษาต่อ
 
-<br><br>
+<br>
+<br>
 
 ภายในแฟ้มสะสมผลงานเล่มนี้
 ประกอบด้วยประวัติส่วนตัว ผลการเรียน
@@ -339,8 +576,8 @@ nav{
 
 </div>
 
-</main>
 
+</main>
 
 </body>
 
