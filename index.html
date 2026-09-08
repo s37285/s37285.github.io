@@ -1,813 +1,236 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Portfolio | Thanyaporn Luangjit</title>
+    <meta charset="UTF-8">
 
-<style>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-/* =========================
-   ตั้งค่าพื้นฐาน
-========================= */
+    <title>Portfolio | Thanyaporn Luangjit</title>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    <link rel="stylesheet" href="style.css">
 
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:"Trebuchet MS","Tahoma",sans-serif;
-    color:#000000;
-    background:linear-gradient(
-        135deg,
-        #DCDCDC,
-        #FFF8DC,
-        #DCDCDC
-    );
-    overflow-x:hidden;
-}
-
-/* =========================
-   Navigation Bar
-========================= */
-
-nav{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:85px;
-    background:rgba(255,248,220,0.95);
-    backdrop-filter:blur(10px);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:1000;
-    box-shadow:0 4px 15px rgba(0,0,0,0.15);
-}
-
-.nav-container{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-    justify-content:center;
-}
-
-.nav-btn{
-    position:relative;
-    text-decoration:none;
-    color:#000000;
-    font-size:17px;
-    font-weight:bold;
-    padding:13px 25px;
-    transition:0.3s;
-}
-
-/* เมฆล้อมรอบข้อความ */
-
-.nav-btn::before{
-    content:"☁️";
-    position:absolute;
-    left:3px;
-    top:3px;
-    font-size:28px;
-    color:#6495ED;
-    z-index:-1;
-}
-
-.nav-btn::after{
-    content:"☁️";
-    position:absolute;
-    right:3px;
-    bottom:0px;
-    font-size:28px;
-    color:#6495ED;
-    z-index:-1;
-}
-
-.nav-btn:hover{
-    transform:translateY(-5px) scale(1.05);
-}
-
-/* =========================
-   Floating Sun & Clouds
-========================= */
-
-.decor{
-    position:fixed;
-    pointer-events:none;
-    z-index:0;
-}
-
-.sun{
-    font-size:65px;
-    color:#FFD700;
-    animation:floatSun 7s ease-in-out infinite;
-}
-
-.cloud{
-    font-size:70px;
-    color:#6495ED;
-    animation:floatCloud 9s ease-in-out infinite;
-}
-
-.sun1{
-    top:120px;
-    left:7%;
-}
-
-.sun2{
-    bottom:15%;
-    right:8%;
-    animation-delay:2s;
-}
-
-.cloud1{
-    top:25%;
-    right:5%;
-}
-
-.cloud2{
-    bottom:20%;
-    left:5%;
-    animation-delay:3s;
-}
-
-@keyframes floatSun{
-    0%,100%{
-        transform:translateY(0) rotate(-5deg);
-    }
-
-    50%{
-        transform:translateY(-30px) rotate(5deg);
-    }
-}
-
-@keyframes floatCloud{
-    0%,100%{
-        transform:translateX(0) translateY(0);
-    }
-
-    50%{
-        transform:translateX(35px) translateY(-15px);
-    }
-}
-
-/* =========================
-   ทุกหน้า
-========================= */
-
-.page{
-    min-height:100vh;
-    padding:130px 8% 80px;
-    position:relative;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    z-index:1;
-}
-
-/* =========================
-   หัวข้อใหญ่
-========================= */
-
-.page-title{
-    font-size:clamp(45px,7vw,85px);
-    text-align:center;
-    color:#000000;
-    margin-bottom:45px;
-    font-weight:900;
-    letter-spacing:2px;
-}
-
-/* =========================
-   กรอบข้อความ
-========================= */
-
-.content-box{
-    width:min(1000px,95%);
-    background:rgba(255,255,255,0.70);
-    border:3px solid #6495ED;
-    border-radius:30px;
-    padding:40px;
-    box-shadow:
-        0 15px 35px rgba(0,0,0,0.15);
-    margin-bottom:30px;
-    line-height:1.9;
-}
-
-.content-box h2{
-    font-size:32px;
-    margin-bottom:20px;
-    text-align:center;
-}
-
-.content-box p{
-    font-size:20px;
-    margin:8px 0;
-}
-
-/* =========================
-   หน้าแรก
-========================= */
-
-.home-title{
-    font-size:clamp(70px,12vw,150px);
-    font-weight:900;
-    text-transform:uppercase;
-    text-align:center;
-    margin-bottom:40px;
-}
-
-.profile-image{
-    width:300px;
-    height:380px;
-    object-fit:cover;
-    border-radius:30px;
-    border:5px solid #FFD700;
-    background:#DCDCDC;
-    box-shadow:0 15px 30px rgba(0,0,0,0.2);
-    margin-bottom:35px;
-}
-
-/* ข้อมูลหน้าแรก */
-
-.home-info{
-    width:min(900px,95%);
-    text-align:center;
-}
-
-.home-info .name{
-    font-size:34px;
-    font-weight:bold;
-    margin-bottom:12px;
-}
-
-.home-info .english-name{
-    font-size:24px;
-    margin-bottom:25px;
-}
-
-.info-line{
-    font-size:21px;
-    margin:10px 0;
-}
-
-/* =========================
-   คำนำ
-========================= */
-
-.preface-box{
-    font-size:23px;
-    text-align:justify;
-    line-height:2;
-}
-
-/* =========================
-   ประวัติส่วนตัว
-========================= */
-
-.personal-info{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px 35px;
-}
-
-.personal-info p{
-    font-size:19px;
-}
-
-/* =========================
-   ผลงานและกิจกรรม
-========================= */
-
-.activities{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:35px;
-    width:min(1100px,95%);
-}
-
-.activity-card{
-    background:rgba(255,255,255,0.75);
-    border:3px solid #6495ED;
-    border-radius:30px;
-    padding:25px;
-    text-align:center;
-    box-shadow:0 12px 30px rgba(0,0,0,0.13);
-}
-
-.activity-card img{
-    width:100%;
-    height:260px;
-    object-fit:cover;
-    border-radius:20px;
-    border:4px solid #FFD700;
-    background:#DCDCDC;
-    margin-bottom:20px;
-}
-
-.activity-card p{
-    font-size:18px;
-    line-height:1.8;
-}
-
-/* =========================
-   ช่องทางการติดต่อ
-========================= */
-
-.contact-box{
-    width:min(800px,95%);
-}
-
-.contact-item{
-    display:flex;
-    align-items:center;
-    gap:20px;
-    background:rgba(255,255,255,0.7);
-    border-radius:20px;
-    padding:20px;
-    margin:18px 0;
-    border:2px solid #6495ED;
-    font-size:21px;
-    word-break:break-word;
-}
-
-.contact-icon{
-    font-size:35px;
-    min-width:45px;
-}
-
-.contact-item a{
-    color:#000000;
-    text-decoration:none;
-}
-
-.contact-item a:hover{
-    text-decoration:underline;
-}
-
-/* =========================
-   Footer
-========================= */
-
-footer{
-    text-align:center;
-    padding:30px;
-    background:#FFF8DC;
-    font-size:17px;
-}
-
-/* =========================
-   Responsive
-========================= */
-
-@media(max-width:800px){
-
-    nav{
-        height:auto;
-        padding:12px;
-    }
-
-    .nav-container{
-        gap:5px;
-    }
-
-    .nav-btn{
-        font-size:13px;
-        padding:10px 16px;
-    }
-
-    .page{
-        padding-top:150px;
-    }
-
-    .personal-info{
-        grid-template-columns:1fr;
-    }
-
-    .activities{
-        grid-template-columns:1fr;
-    }
-
-    .content-box{
-        padding:25px;
-    }
-
-    .home-info .name{
-        font-size:25px;
-    }
-
-    .info-line{
-        font-size:18px;
-    }
-
-    .sun{
-        font-size:45px;
-    }
-
-    .cloud{
-        font-size:50px;
-    }
-}
-
-</style>
 </head>
 
 
 <body>
 
-<!-- =========================
-     Navigation
-========================= -->
+
+<!-- ==================================
+     แถบเมนูด้านบน
+================================== -->
 
 <nav>
 
-<div class="nav-container">
+    <div class="nav-menu">
 
-<a href="#home" class="nav-btn">
-    คำนำ
-</a>
+        <a href="index.html">
+            หน้าหลัก
+        </a>
 
-<a href="#personal" class="nav-btn">
-    ประวัติส่วนตัว
-</a>
+        <a href="preface.html">
+            คำนำ
+        </a>
 
-<a href="#activities" class="nav-btn">
-    ผลงานและกิจกรรม
-</a>
+        <a href="personal.html">
+            ประวัติส่วนตัว
+        </a>
 
-<a href="#contact" class="nav-btn">
-    ช่องทางการติดต่อ
-</a>
+        <a href="activities.html">
+            ผลงานและกิจกรรม
+        </a>
 
-</div>
+        <a href="contact.html">
+            ช่องทางการติดต่อ
+        </a>
+
+    </div>
 
 </nav>
 
 
-<!-- =========================
-     ของตกแต่งลอย
-========================= -->
 
-<div class="decor sun sun1">☀️</div>
-<div class="decor sun sun2">☀️</div>
+<!-- ==================================
+     พระอาทิตย์และก้อนเมฆ
+================================== -->
 
-<div class="decor cloud cloud1">☁️</div>
-<div class="decor cloud cloud2">☁️</div>
+<div class="sun one">
+    ☀️
+</div>
+
+<div class="sun two">
+    ☀️
+</div>
+
+<div class="cloud one">
+    ☁️
+</div>
+
+<div class="cloud two">
+    ☁️
+</div>
 
 
-<!-- =========================
+
+<!-- ==================================
      หน้าแรก
-========================= -->
+================================== -->
 
-<section class="page" id="home">
+<main class="page">
 
-<h1 class="home-title">
-    PORTFOLIO
-</h1>
 
+    <!-- หัวข้อใหญ่ -->
 
-<!-- ใส่รูปหน้าจอคอมพิวเตอร์ตรงนี้ -->
+    <h1 class="home-title">
+        PORTFOLIO
+    </h1>
 
-<img 
-    src="images/profile.jpg"
-    alt="รูปภาพของธันยพร"
-    class="profile-image"
->
 
 
-<div class="home-info">
+    <!-- ==================================
+         รูปภาพตรงกลาง
+         
+         เปลี่ยน profile.jpg
+         เป็นชื่อไฟล์รูปของเมลได้เลย
+    ================================== -->
 
-<div class="name">
-    นางสาวธันยพร หลวงจิตร
-</div>
+    <div class="profile-frame">
 
-<div class="english-name">
-    Thanyaporn Luangjit
-</div>
+        <img
+            src="IMG_1028.jpeg"
+            alt="รูปภาพของธันยพร หลวงจิตร"
+            class="profile-image"
+        >
 
-<div class="info-line">
-    <strong>ชื่อเล่น</strong> เมล
-</div>
+    </div>
 
-<div class="info-line">
-    <strong>Nickname</strong> Mail
-</div>
 
-<div class="info-line">
-    <strong>ระดับชั้น</strong> มัธยมศึกษาชั้นปีที่ 6/2
-</div>
 
-<div class="info-line">
-    <strong>แผนการเรียน</strong> Gifted Program
-</div>
+    <!-- ==================================
+         ข้อมูลส่วนตัว
+    ================================== -->
 
-<div class="info-line">
-    <strong>โรงเรียนที่กำลังศึกษาอยู่</strong><br>
-    โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"
-</div>
+    <div class="home-info">
 
-<div class="info-line">
-    <strong>คณะ-สาขาและมหาวิทยาลัยที่สนใจศึกษาต่อ</strong><br>
-    คณะพยาบาลศาสตร์ หลักสูตรพยาบาลศาสตรบัณฑิต (พย.บ.)<br>
-    มหาวิทยาลัยบูรพา
-</div>
 
-</div>
+        <!-- ชื่อ -->
 
-</section>
+        <div class="name">
+            นางสาวธันยพร หลวงจิตร
+        </div>
 
 
-<!-- =========================
-     คำนำ
-========================= -->
+        <!-- ชื่อภาษาอังกฤษ -->
 
-<section class="page" id="preface">
+        <div class="english-name">
+            Thanyaporn Luangjit
+        </div>
 
-<h1 class="page-title">
-    คำนำ
-</h1>
 
-<div class="content-box preface-box">
 
-แฟ้มสะสมผลงาน (Portfolio) เล่มนี้ จัดทำขึ้นเพื่อเป็นตัวแทนในการนำเสนอข้อมูลเกี่ยวกับประวัติส่วนตัว ความรู้ ความสามารถ ทักษะ และกิจกรรมต่างๆ ของข้าพเจ้า โดยเฉพาะความสนใจและความมุ่งมั่นที่มีต่อการศึกษาต่อ ภายในแฟ้มสะสมผลงานเล่มนี้ ประกอบด้วยประวัติส่วนตัว ผลการเรียน กิจกรรมที่ข้าพเจ้าได้เข้าร่วม
+        <!-- ข้อมูล -->
 
-</div>
+        <div class="info-line">
 
-</section>
+            <strong>
+                ชื่อเล่น
+            </strong>
 
+            เมล
 
-<!-- =========================
-     ประวัติส่วนตัว
-========================= -->
+        </div>
 
-<section class="page" id="personal">
 
-<h1 class="page-title">
-    ประวัติส่วนตัว
-</h1>
+        <div class="info-line">
 
+            <strong>
+                Nickname
+            </strong>
 
-<div class="content-box">
+            Mail
 
-<h2>
-    ประวัติส่วนตัว
-</h2>
+        </div>
 
-<div class="personal-info">
 
-<p>
-<strong>ชื่อ-นามสกุล</strong><br>
-นางสาวธันยพร หลวงจิตร
-</p>
+        <div class="info-line">
 
-<p>
-<strong>Name</strong><br>
-Thanyaporn Luangjit
-</p>
+            <strong>
+                ระดับชั้น
+            </strong>
 
-<p>
-<strong>ชื่อเล่น</strong><br>
-เมล
-</p>
+            มัธยมศึกษาชั้นปีที่ 6/2
 
-<p>
-<strong>Nickname</strong><br>
-Mail
-</p>
+        </div>
 
-<p>
-<strong>อายุ</strong><br>
-17 ปี
-</p>
 
-<p>
-<strong>Age</strong><br>
-17 years old
-</p>
+        <div class="info-line">
 
-<p>
-<strong>วันเกิด</strong><br>
-16 มีนาคม 2552
-</p>
+            <strong>
+                แผนการเรียน
+            </strong>
 
-<p>
-<strong>สัญชาติ</strong><br>
-ไทย
-</p>
+            Gifted Program
 
-<p>
-<strong>เชื้อชาติ</strong><br>
-ไทย
-</p>
+        </div>
 
-<p>
-<strong>ศาสนา</strong><br>
-พุทธ
-</p>
 
-<p>
-<strong>ประวัติการศึกษา</strong><br>
-สถานศึกษา โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"
-</p>
+        <div class="info-line">
 
-<p>
-<strong>แผนการเรียน</strong><br>
-Gifted Program
-</p>
+            <strong>
+                โรงเรียนที่กำลังศึกษาอยู่
+            </strong>
 
-</div>
+            <br>
 
-</div>
+            โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"
 
-</section>
+        </div>
 
 
-<!-- =========================
-     ผลงานและกิจกรรม
-========================= -->
+        <!-- ==================================
+             มหาวิทยาลัยที่สนใจ
+        ================================== -->
 
-<section class="page" id="activities">
+        <div class="info-line university">
 
-<h1 class="page-title">
-    ผลงานและกิจกรรม
-</h1>
+            <strong>
+                คณะ-สาขาและมหาวิทยาลัยที่สนใจศึกษาต่อ
+            </strong>
 
+            <br>
 
-<div class="activities">
+            คณะพยาบาลศาสตร์
+            หลักสูตรพยาบาลศาสตรบัณฑิต (พย.บ.)
 
+            <br>
 
-<!-- กิจกรรมที่ 1 -->
+            <span>
+                มหาวิทยาลัยบูรพา
+            </span>
 
-<div class="activity-card">
+        </div>
 
-<img 
-    src="images/activity1-1.jpg"
-    alt="กิจกรรมฝึกประสบการณ์คลินิกทันตกรรม"
->
 
-<img 
-    src="images/activity1-2.jpg"
-    alt="กิจกรรมฝึกประสบการณ์คลินิกทันตกรรม"
->
+    </div>
 
-<p>
-ได้ไปฝึกประสบการณ์ที่คลินิกทันตกรรมเอสซี
-ซึ่งได้เรียนรู้ในการเอกซเรย์ฟัน การพิมพ์ฟัน
-และการตรวจสุขภาพช่องปาก
-</p>
 
-</div>
+</main>
 
 
-<!-- กิจกรรมที่ 2 -->
 
-<div class="activity-card">
-
-<img 
-    src="images/activity2.jpg"
-    alt="ผลงานและกิจกรรมที่ 2"
->
-
-<p>
-ใส่รายละเอียดผลงานหรือกิจกรรมที่ 2
-ตรงบริเวณนี้
-</p>
-
-</div>
-
-
-<!-- กิจกรรมที่ 3 -->
-
-<div class="activity-card">
-
-<img 
-    src="images/activity3.jpg"
-    alt="ผลงานและกิจกรรมที่ 3"
->
-
-<p>
-ใส่รายละเอียดผลงานหรือกิจกรรมที่ 3
-ตรงบริเวณนี้
-</p>
-
-</div>
-
-
-<!-- กิจกรรมที่ 4 -->
-
-<div class="activity-card">
-
-<img 
-    src="images/activity4.jpg"
-    alt="ผลงานและกิจกรรมที่ 4"
->
-
-<p>
-ใส่รายละเอียดผลงานหรือกิจกรรมที่ 4
-ตรงบริเวณนี้
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     ช่องทางการติดต่อ
-========================= -->
-
-<section class="page" id="contact">
-
-<h1 class="page-title">
-    ช่องทางการติดต่อ
-</h1>
-
-
-<div class="content-box contact-box">
-
-
-<div class="contact-item">
-
-<div class="contact-icon">
-    📧
-</div>
-
-<div>
-
-<strong>Gmail</strong><br>
-
-<a href="mailto:mail.luangjit@gmail.com">
-    mail.luangjit@gmail.com
-</a>
-
-</div>
-
-</div>
-
-
-<div class="contact-item">
-
-<div class="contact-icon">
-    📞
-</div>
-
-<div>
-
-<strong>Tel</strong><br>
-
-092-4301659
-
-</div>
-
-</div>
-
-
-<div class="contact-item">
-
-<div class="contact-icon">
-    📷
-</div>
-
-<div>
-
-<strong>IG</strong><br>
-
-<a 
-    href="https://www.instagram.com/mxi_316/"
-    target="_blank"
->
-    @mxi_316
-</a>
-
-</div>
-
-</div>
-
-
-</div>
-
-</section>
-
+<!-- ==================================
+     Footer
+================================== -->
 
 <footer>
 
-© 2026 Thanyaporn Luangjit | Portfolio
+    © 2026 Thanyaporn Luangjit
 
 </footer>
 
 
 </body>
+
 </html>
